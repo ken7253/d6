@@ -28,7 +28,7 @@ const updateMeta = () => {
       { name: "color-scheme", content: darkMode.value ? "dark" : "light" },
     ],
     bodyAttrs: {
-      class: darkMode ? "dark" : "light",
+      class: darkMode.value ? "dark" : "light",
     }
   });
 }
@@ -64,7 +64,7 @@ onMounted(() => {
   --c-static-lighter: #eee;
   --c-static-lightest: #fff;
 }
-.light {
+:global body.light {
   color-scheme: light;
   --c-dark: var(--c-static-dark);
   --c-darker: var(--c-static-darker);
@@ -73,7 +73,7 @@ onMounted(() => {
   --c-lighter: var(--c-static-lighter);
   --c-lightest: var(--c-static-lightest);
 }
-.dark {
+:global body.dark {
   color-scheme: dark;
   --c-dark: var(--c-static-light);
   --c-darker: var(--c-static-lighter);
