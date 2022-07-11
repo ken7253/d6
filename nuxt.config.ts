@@ -4,6 +4,9 @@ import { defineNuxtConfig } from 'nuxt'
 export default defineNuxtConfig({
   app: {
     head: {
+      meta: [
+        { name: 'color-scheme', content: 'light dark' },
+      ],
       link: [
         { rel: 'stylesheet', href: '/assets/css/overwrite.css' },
       ],
