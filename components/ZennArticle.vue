@@ -41,7 +41,7 @@ fetch(`${base}${request}`).then((resp) => {
   display: inline;
 }
 .read-more {
-  padding-top: 2rem;
+  padding-top: .75rem;
 }
 .item {
   padding-bottom: .5em;
