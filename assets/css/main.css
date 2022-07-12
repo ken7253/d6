@@ -1,0 +1,61 @@
+/* reset, overwrite */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+:root {
+  scroll-behavior: smooth;
+}
+
+/* variable */
+:root {
+  --c-static-dark: #333;
+  --c-static-darker: #222;
+  --c-static-darkest: #111;
+  --c-static-light: #ddd;
+  --c-static-lighter: #eee;
+  --c-static-lightest: #fff;
+  --c-static-base-dark: #1f214e;
+  --c-static-base-light: #c6c8ec;
+  --c-static-secondary: #70909e;
+  --c-static-important: #db3131;
+  --content-max-size: 1200px;
+  --transition-time: 250ms;
+}
+
+body:not([class*="dark"]) {
+  color-scheme: light;
+  --c-dark: var(--c-static-dark);
+  --c-darker: var(--c-static-darker);
+  --c-darkest: var(--c-static-darkest);
+  --c-light: var(--c-static-light);
+  --c-lighter: var(--c-static-lighter);
+  --c-lightest: var(--c-static-lightest);
+  --c-base-dark: var(--c-static-base-dark);
+  --c-base-light: var(--c-static-base-light);
+  --c-secondary: var(--c-static-secondary);
+  --c-important: var(--c-static-important);
+}
+
+body.dark {
+  color-scheme: dark;
+  --c-dark: var(--c-static-light);
+  --c-darker: var(--c-static-lighter);
+  --c-darkest: var(--c-static-lightest);
+  --c-light: var(--c-static-dark);
+  --c-lighter: var(--c-static-darker);
+  --c-lightest: var(--c-static-darkest);
+  --c-base-dark: var(--c-static-base-light);
+  --c-base-light: var(--c-static-base-dark);
+  --c-secondary: var(--c-static-secondary);
+  --c-important: var(--c-static-important);
+}

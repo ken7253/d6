@@ -8,7 +8,7 @@ export default defineNuxtConfig({
         { name: 'color-scheme', content: 'light dark' },
       ],
       link: [
-        { rel: 'stylesheet', href: '/assets/css/overwrite.css' },
+        { rel: 'stylesheet', href: '/assets/css/main.css' },
       ],
     }
   }

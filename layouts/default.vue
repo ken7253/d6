@@ -1,26 +1,37 @@
 <template>
-  <div>
+  <div :class="$style.root">
     <header :class="$style.header">
-      <p>D6</p>
-      <input
-        type="checkbox"
-        v-model="darkMode"
-      />
+      <div :class="$style['header-inner']">
+        <p :class="$style.title">dairoku studio</p>
+          <button :class="$style['dark-mode']" role="checkbox" :aria-checked="darkMode" @click="toggleDarkMode">
+            <span :class="$style['speaker-only']">ダークモード</span>
+            <icon-moon :class="$style.icon" v-if="darkMode"></icon-moon>
+            <icon-sun :class="$style.icon" v-if="!darkMode"></icon-sun>
+          </button>
+      </div>
     </header>
     <main :class="$style.content">
-      <slot></slot>
+      <div :class="$style['content-inner']">
+        <slot></slot>
+      </div>
     </main>
-    <footer :class="$style.footer">footer</footer>
+    <footer :class="$style.footer">
+      <div :class="$style['footer-inner']">
+        <small>© ken7253</small>
+      </div>
+    </footer>
   </div>
 </template>
 
 <script lang="ts" setup>
+import { IconMoon, IconSun } from '~~/.nuxt/components';
+
 const darkMode = ref(false);
 
-// const toggleDarkMode = () => {
-//   theme.darkMode = !theme.darkMode;
-//   updateMeta();
-// };
+const toggleDarkMode = () => {
+  darkMode.value = !darkMode.value;
+  updateMeta();
+}
 
 const updateMeta = () => {
   useHead({
@@ -29,9 +40,9 @@ const updateMeta = () => {
     ],
     bodyAttrs: {
       class: darkMode.value ? "dark" : "light",
-    }
+    },
   });
-}
+};
 
 onMounted(() => {
   darkMode.value = matchMedia("(prefers-color-scheme: dark)").matches;
@@ -40,46 +51,72 @@ onMounted(() => {
 </script>
 
 <style module>
+.root {
+  background-color: var(--c-lighter);
+}
 .header {
   position: fixed;
   height: 70px;
   padding: 4px;
   width: 100%;
+  background-color: var(--c-base-light);
+  color: var(--c-base-dark);
 }
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: var(--content-max-size);
+  margin: auto;
+  color: inherit;
+}
+.title {
+  line-height: 1;
+}
+.dark-mode {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  color: inherit;
+}
+
 .content {
   padding-top: 70px;
   min-height: 100vh;
   min-height: 100dvh;
+  max-width: var(--content-max-size);
+  margin: 0 auto;
+}
+.content-inner {
+  padding: 40px 0;
 }
 .footer {
   display: block;
   width: 100%;
+  padding: 4px;
+  background-color: var(--c-base-light);
+  color: var(--c-base-dark);
 }
-
-:global html {
-  --c-static-dark: #333;
-  --c-static-darker: #222;
-  --c-static-darkest: #111;
-  --c-static-light: #ddd;
-  --c-static-lighter: #eee;
-  --c-static-lightest: #fff;
+.footer-inner {
+  max-width: var(--content-max-size);
+  margin: auto;
+  color: inherit;
+  text-align: center;
 }
-:global body.light {
-  color-scheme: light;
-  --c-dark: var(--c-static-dark);
-  --c-darker: var(--c-static-darker);
-  --c-darkest: var(--c-static-darkest);
-  --c-light: var(--c-static-light);
-  --c-lighter: var(--c-static-lighter);
-  --c-lightest: var(--c-static-lightest);
+.icon {
+  width: 45px;
+  height: 45px;
+  padding: 10px;
+  transition: transform var(--transition-time) ease;
 }
-:global body.dark {
-  color-scheme: dark;
-  --c-dark: var(--c-static-light);
-  --c-darker: var(--c-static-lighter);
-  --c-darkest: var(--c-static-lightest);
-  --c-light: var(--c-static-dark);
-  --c-lighter: var(--c-static-darker);
-  --c-lightest: var(--c-static-darkest);
+.icon:hover {
+  transform: scale(1.1);
+  transition: transform var(--transition-time) ease;
+}
+.speaker-only {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
 }
 </style>
