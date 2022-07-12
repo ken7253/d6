@@ -1,5 +1,5 @@
 <template>
   <div>
-    <p>test</p>
+    <zenn-article></zenn-article>
   </div>
 </template>
