@@ -10,9 +10,12 @@
           </button>
       </div>
     </header>
-    <main :class="$style.content">
-      <div :class="$style['content-inner']">
-        <slot></slot>
+    <main>
+      <div v-if="!isTop" :class="$style['page-title']">
+        <h1>{{route.meta.title}}</h1>
+      </div>
+      <div :class="$style.content">
+        <slot :class="$style['content-inner']"></slot>
       </div>
     </main>
     <footer :class="$style.footer">
@@ -24,9 +27,16 @@
 </template>
 
 <script lang="ts" setup>
+import { useRoute } from 'vue-router';
 import { IconMoon, IconSun } from '~~/.nuxt/components';
 
+const route = useRoute();
 const darkMode = ref(false);
+const isTop = route.path === '/';
+
+useHead({
+  title: `${route.meta.title}${isTop ? '' : ' - '}dairoku studio`
+});
 
 const toggleDarkMode = () => {
   darkMode.value = !darkMode.value;
@@ -82,13 +92,22 @@ onMounted(() => {
   border: none;
   color: inherit;
 }
-
-.content {
+.page-title {
+  background-color: var(--c-base-lighter);
+}
+.page-title h1 {
+  padding: 50px 0;
+  max-width: var(--content-max-size);
+  margin: auto;
+}
+main {
   padding-top: 70px;
+}
+.content {
   min-height: 100vh;
   min-height: 100dvh;
   max-width: var(--content-max-size);
-  margin: 0 auto;
+  margin: 25px auto;
 }
 .content-inner {
   padding: 40px 0;
