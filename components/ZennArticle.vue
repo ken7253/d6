@@ -6,7 +6,7 @@
       <li :class="$style.item" v-for="article in articles" :key="article.guid">
         <NuxtLink :class="$style.anchor" :href="article.link" target="_blank">
           {{article.title}} / 
-          <time :datetime="article.pubDate">{{article.pubDate.split(' ')[0]}}</time>
+          <time :class="$style.date" :datetime="article.pubDate">{{article.pubDate.split(' ')[0]}}</time>
         </NuxtLink>
       </li>
     </ul>
@@ -40,6 +40,10 @@ fetch(`${base}${request}`).then((resp) => {
 .anchor {
   text-underline-offset: 4px;
   display: inline;
+}
+.date {
+  display: inline-block;
+  text-decoration: underline;
 }
 .read-more {
   padding-top: .75rem;
