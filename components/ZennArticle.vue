@@ -1,7 +1,8 @@
 <template>
   <div>
     <h2 :class="$style.heading">記事一覧</h2>
-    <ul :class="$style.artical">
+    <p v-if="articles.length === 0">記事の取得に失敗しました</p>
+    <ul v-else :class="$style.artical">
       <li :class="$style.item" v-for="article in articles" :key="article.guid">
         <a :class="$style.anchor" :href="article.link" target="_blank" rel="noopener noreferrer">
           {{article.title}} / 
