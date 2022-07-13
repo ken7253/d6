@@ -6,11 +6,15 @@
           <h1 v-if="isTop">dairoku studio</h1>
           <span v-else>dairoku studio</span>
         </NuxtLink>
-          <button :class="$style['dark-mode']" role="checkbox" :aria-checked="darkMode" @click="toggleDarkMode">
-            <span :class="$style['speaker-only']">ダークモード</span>
-            <icon-moon :class="$style.icon" v-if="darkMode"></icon-moon>
-            <icon-sun :class="$style.icon" v-if="!darkMode"></icon-sun>
-          </button>
+          <div :class="$style.menu">
+            <NuxtLink to="/works/">works</NuxtLink>
+            <NuxtLink to="/about/">about</NuxtLink>
+            <button :class="$style['dark-mode']" role="checkbox" :aria-checked="darkMode" @click="toggleDarkMode">
+              <span :class="$style['speaker-only']">ダークモード</span>
+              <icon-moon :class="$style.icon" v-if="darkMode"></icon-moon>
+              <icon-sun :class="$style.icon" v-if="!darkMode"></icon-sun>
+            </button>
+          </div>
       </div>
     </header>
     <main>
@@ -57,6 +61,7 @@ const updateMeta = () => {
 };
 
 onMounted(() => {
+  /** @todo 初回描画時にちらつきが発生するので修正する */
   darkMode.value = matchMedia("(prefers-color-scheme: dark)").matches;
   watchEffect(() => updateMeta());
 });
@@ -79,7 +84,7 @@ onMounted(() => {
   align-items: center;
   justify-content: space-between;
   height: 100%;
-  max-width: var(--content-max-size);
+  max-width: min(calc(100% - 40px), var(--content-max-size));
   margin: auto;
   color: inherit;
 }
@@ -92,6 +97,15 @@ onMounted(() => {
   font-size: 1rem;
   font-weight: 500;
 }
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.menu > * {
+  line-height: 1;
+  text-decoration: none;
+}
 .dark-mode {
   appearance: none;
   background-color: transparent;
@@ -103,7 +117,7 @@ onMounted(() => {
 }
 .page-title h1 {
   padding: 50px 0;
-  max-width: var(--content-max-size);
+  max-width: min(calc(100% - 40px), var(--content-max-size));
   margin: auto;
 }
 main {
@@ -112,7 +126,7 @@ main {
 .content {
   min-height: 100vh;
   min-height: 100dvh;
-  max-width: var(--content-max-size);
+  max-width: min(calc(100% - 40px), var(--content-max-size));
   margin: 25px auto;
 }
 .content-inner {
