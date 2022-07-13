@@ -30,7 +30,6 @@
 </template>
 
 <script lang="ts" setup>
-import { useRoute } from 'vue-router';
 import { IconMoon, IconSun } from '~~/.nuxt/components';
 
 const route = useRoute();
