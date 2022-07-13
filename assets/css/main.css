@@ -7,6 +7,10 @@
   padding: 0;
 }
 
+html {
+  font-size: clamp(.88rem, 1.5vw, 1rem);
+}
+
 img {
   max-width: 100%;
   height: auto;
