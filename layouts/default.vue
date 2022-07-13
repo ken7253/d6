@@ -2,7 +2,7 @@
   <div :class="$style.root">
     <header :class="$style.header">
       <div :class="$style['header-inner']">
-        <p :class="$style.title">dairoku studio</p>
+        <nuxt-link :class="$style.title" to="/">dairoku studio</nuxt-link>
           <button :class="$style['dark-mode']" role="checkbox" :aria-checked="darkMode" @click="toggleDarkMode">
             <span :class="$style['speaker-only']">ダークモード</span>
             <icon-moon :class="$style.icon" v-if="darkMode"></icon-moon>
@@ -73,6 +73,8 @@ onMounted(() => {
 }
 .title {
   line-height: 1;
+  text-decoration: none;
+  color: inherit;
 }
 .dark-mode {
   appearance: none;

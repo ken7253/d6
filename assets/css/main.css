@@ -12,9 +12,12 @@ img {
   height: auto;
 }
 
+a {
+  text-underline-offset: 4px;
+}
+
 a:hover {
   opacity: .8;
-  text-underline-offset: 4px;
 }
 
 :root {
