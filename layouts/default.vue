@@ -73,11 +73,21 @@ onMounted(() => {
 }
 .header {
   position: fixed;
+  top: 0;
   height: 70px;
-  padding: 4px;
   width: 100%;
-  background-color: var(--c-base-light);
   color: var(--c-base-dark);
+  backdrop-filter: blur(3px);
+}
+.header::before {
+  content: "";
+  position: fixed;
+  height: inherit;
+  width: inherit;
+  top: inherit;
+  background-color: var(--c-base-light);
+  z-index: -1;
+  opacity: .5;
 }
 .header-inner {
   display: flex;
@@ -106,6 +116,9 @@ onMounted(() => {
   line-height: 1;
   text-decoration: none;
 }
+.menu > a[aria-current="page"] {
+  color: var(--c-darkest);
+}
 .dark-mode {
   appearance: none;
   background-color: transparent;
@@ -133,11 +146,12 @@ main {
   padding: 40px 0;
 }
 .footer {
+  position: relative;
   display: block;
+  height: fit-content;
   width: 100%;
-  padding: 4px;
-  background-color: var(--c-base-light);
   color: var(--c-base-dark);
+  background-color: var(--c-base-light);
 }
 .footer-inner {
   max-width: var(--content-max-size);
