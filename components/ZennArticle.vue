@@ -4,14 +4,14 @@
     <p v-if="articles.length === 0">記事の取得に失敗しました</p>
     <ul v-else :class="$style.artical">
       <li :class="$style.item" v-for="article in articles" :key="article.guid">
-        <a :class="$style.anchor" :href="article.link" target="_blank" rel="noopener noreferrer">
+        <NuxtLink :class="$style.anchor" :href="article.link" target="_blank">
           {{article.title}} / 
           <time :datetime="article.pubDate">{{article.pubDate.split(' ')[0]}}</time>
-        </a>
+        </NuxtLink>
       </li>
     </ul>
     <div :class="$style['read-more']">
-      <a :class="$style.anchor" href="https://zenn.dev/ken7253" target="_blank" rel="noopener noreferrer">すべての記事を見る</a>
+      <NuxtLink :class="$style.anchor" href="https://zenn.dev/ken7253" target="_blank">すべての記事を見る</NuxtLink>
     </div>
   </div>
 </template>

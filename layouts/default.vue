@@ -2,7 +2,7 @@
   <div :class="$style.root">
     <header :class="$style.header">
       <div :class="$style['header-inner']">
-        <nuxt-link :class="$style.title" to="/">dairoku studio</nuxt-link>
+        <NuxtLink :class="$style.title" to="/">dairoku studio</NuxtLink>
           <button :class="$style['dark-mode']" role="checkbox" :aria-checked="darkMode" @click="toggleDarkMode">
             <span :class="$style['speaker-only']">ダークモード</span>
             <icon-moon :class="$style.icon" v-if="darkMode"></icon-moon>

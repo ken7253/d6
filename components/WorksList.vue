@@ -6,7 +6,7 @@
       <h3 :class="$style['title-cat']">{{ name }}</h3>
         <div :class="$style.item" v-for="(item, index) in works[name]" :key="index">
           <h4 :class="$style['item-name']">
-            <a :href="item.link" target="_blank" rel="noopener noreferrer">{{item.title}}</a>
+            <NuxtLink :href="item.link" target="_blank">{{item.title}}</NuxtLink>
           </h4>
           <p>{{item.description}}</p>
         </div>
