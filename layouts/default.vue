@@ -9,6 +9,7 @@
           <div :class="$style.menu">
             <NuxtLink to="/works/">works</NuxtLink>
             <NuxtLink to="/about/">about</NuxtLink>
+            <NuxtLink to="/post/">post</NuxtLink>
             <button :class="$style['dark-mode']" role="checkbox" :aria-checked="darkMode" @click="toggleDarkMode">
               <span :class="$style['speaker-only']">ダークモード</span>
               <icon-moon :class="$style.icon" v-if="darkMode"></icon-moon>
