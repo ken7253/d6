@@ -1,5 +1,9 @@
 <template>
   <div>
+    <p>
+      おそらくフロントエンドエンジニア<br>
+      技術記事以外のブログや作ったものの置き場として利用しています。<br>
+    </p>
     <h2>pages</h2>
     <ul :class="$style.link">
       <li :class="$style.item"><NuxtLink to="/works/">works</NuxtLink></li>
