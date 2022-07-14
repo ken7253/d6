@@ -4,10 +4,7 @@
     <p v-if="articles.length === 0">記事の取得に失敗しました</p>
     <ul v-else :class="$style.artical">
       <li :class="$style.item" v-for="article in articles" :key="article.guid">
-        <NuxtLink :class="$style.anchor" :href="article.link" target="_blank">
-          {{article.title}} / 
-          <time :class="$style.date" :datetime="article.pubDate">{{article.pubDate.split(' ')[0]}}</time>
-        </NuxtLink>
+        <ArticleLink :link="article.link" :date="article.pubDate" target-blank>{{ article.title }}</ArticleLink>
       </li>
     </ul>
     <div :class="$style['read-more']">
