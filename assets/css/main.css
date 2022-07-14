@@ -7,10 +7,12 @@
 
 :root {
   scroll-behavior: smooth;
+  font-family: 'Source Han Sans JP', 'Noto Sans JP', sans-serif;
 }
 
 html {
   font-size: clamp(.88rem, 1.5vw, 1rem);
+  line-height: 2.1;
 }
 
 body {
@@ -40,6 +42,16 @@ h1,h2,h3,h4,h5,h6 {
   margin-bottom: 1em;
 }
 
+p,ul,ol,li,h1,h2,h3,h4,h5,h6 {
+  color: var(--c-dark);
+  font-feature-settings: "palt";
+  letter-spacing: .05em;
+}
+
+p,ul,ol,li {
+  font-family: 'BIZ UDPGothic', var(--font-family-jp);
+}
+
 /* variable */
 :root {
   --c-static-dark: #333;
@@ -54,6 +66,7 @@ h1,h2,h3,h4,h5,h6 {
   --c-static-important: #db3131;
   --content-max-size: 1200px;
   --transition-time: 250ms;
+  --font-family-jp: 'Source Han Sans JP', 'Noto Sans JP', "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
 }
 
 body:not([class*="dark"]) {
