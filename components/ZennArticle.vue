@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 :class="$style.heading">記事一覧</h2>
+    <h2>記事一覧</h2>
     <p v-if="articles.length === 0">記事の取得に失敗しました</p>
     <ul v-else :class="$style.artical">
       <li :class="$style.item" v-for="article in articles" :key="article.guid">
@@ -28,9 +28,6 @@ fetch(`${base}${request}`).then((resp) => {
 </script>
 
 <style module>
-.heading {
-  padding-bottom: .75em;
-}
 .artical {
   list-style-type: none;
 }
@@ -38,14 +35,7 @@ fetch(`${base}${request}`).then((resp) => {
   text-underline-offset: 4px;
   display: inline;
 }
-.date {
-  display: inline-block;
-  text-decoration: underline;
-}
 .read-more {
   padding-top: .75rem;
-}
-.item {
-  padding-bottom: .5em;
 }
 </style>

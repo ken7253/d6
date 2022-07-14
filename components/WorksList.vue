@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 :class="$style.title">作ったものとか</h2>
+    <h2>作ったものとか</h2>
     <p v-if="!works">データを取得できませんでした</p>
     <div :class="$style.category" v-for="(work, name) in works" :key="name">
       <h3 :class="$style['title-cat']">{{ name }}</h3>
@@ -19,9 +19,6 @@ import { works } from "public/data/works.json";
 </script>
 
 <style module>
-.title {
-  padding-bottom: .75em;
-}
 .title-cat {
   padding-bottom: .5em;
 }

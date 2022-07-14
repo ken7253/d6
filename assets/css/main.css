@@ -7,6 +7,10 @@
   padding: 0;
 }
 
+:root {
+  scroll-behavior: smooth;
+}
+
 html {
   font-size: clamp(.88rem, 1.5vw, 1rem);
 }
@@ -24,8 +28,8 @@ a:hover {
   opacity: .8;
 }
 
-:root {
-  scroll-behavior: smooth;
+h1,h2,h3,h4,h5,h6 {
+  margin-bottom: 1em;
 }
 
 /* variable */
