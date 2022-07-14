@@ -7,7 +7,7 @@
 
 :root {
   scroll-behavior: smooth;
-  font-family: 'Source Han Sans JP', 'Noto Sans JP', sans-serif;
+  font-family: var(--font-family-jp);
 }
 
 html {
@@ -66,7 +66,7 @@ p,ul,ol,li {
   --c-static-important: #db3131;
   --content-max-size: 1200px;
   --transition-time: 250ms;
-  --font-family-jp: 'Source Han Sans JP', 'Noto Sans JP', "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  --font-family-jp: 'M PLUS 1', 'Source Han Sans JP', 'Noto Sans JP', "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
 }
 
 body:not([class*="dark"]) {
