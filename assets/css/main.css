@@ -3,8 +3,6 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 :root {
@@ -13,6 +11,16 @@
 
 html {
   font-size: clamp(.88rem, 1.5vw, 1rem);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+ul[class] {
+  margin: 0;
+  padding: 0;
 }
 
 img {
