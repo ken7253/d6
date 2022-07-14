@@ -6,6 +6,7 @@
 
 <script lang="ts" setup>
 definePageMeta({
-  title: 'works'
+  title: 'works',
+  description: '作ったものとかの一覧ページ'
 })
 </script>
