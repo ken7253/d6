@@ -43,7 +43,7 @@ export default defineComponent({
   position: relative;
   background-color: var(--c-light);
   border-radius: 5px;
-  padding: 5px 20px;
+  padding: 10px 20px;
 }
 .inner {
   overflow-x: auto;
@@ -74,6 +74,9 @@ export default defineComponent({
 .lang::before {
   content: ".";
 }
+.filename + pre {
+  margin-top: 20px;
+}
 .filename {
   position: absolute;
   top: 0;
@@ -87,6 +90,9 @@ export default defineComponent({
 </style>
 
 <style>
+pre {
+  margin: 0;
+}
 pre code .line {
   display: block;
   min-height: 1rem;
