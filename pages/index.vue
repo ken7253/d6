@@ -6,18 +6,32 @@
     </p>
     <h2>pages</h2>
     <ul :class="$style.link">
-      <li :class="$style.item"><NuxtLink to="/works/">works</NuxtLink></li>
-      <li :class="$style.item"><NuxtLink to="/about/">about</NuxtLink></li>
-      <li :class="$style.item"><NuxtLink to="/post/">post</NuxtLink></li>
+      <li :class="$style.item">
+        <NuxtLink to="/works/">
+          works
+        </NuxtLink>
+      </li>
+      <li :class="$style.item">
+        <NuxtLink to="/about/">
+          about
+        </NuxtLink>
+      </li>
+      <li :class="$style.item">
+        <NuxtLink to="/post/">
+          post
+        </NuxtLink>
+      </li>
     </ul>
-    <zenn-article></zenn-article>
+    <zenn-article />
   </div>
 </template>
 
 <script lang="ts" setup>
+import { definePageMeta } from "#imports";
+
 definePageMeta({
-  title: ''
-})
+  title: "",
+});
 </script>
 
 <style module>

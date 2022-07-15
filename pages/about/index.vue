@@ -10,7 +10,15 @@
     <ul>
       <li>ドキュメントを書くこと</li>
       <li>マークアップ</li>
-      <li><NuxtLink to="https://developer.mozilla.org/ja/docs/Web" target="_blank" external>MDN</NuxtLink>を読むこと</li>
+      <li>
+        <NuxtLink
+          to="https://developer.mozilla.org/ja/docs/Web"
+          target="_blank"
+          external
+        >
+          MDN
+        </NuxtLink>を読むこと
+      </li>
     </ul>
     <h3>苦手なこと</h3>
     <ul>
@@ -38,17 +46,27 @@
     <h3>連絡・ご依頼など</h3>
     <p>
       基本的にフロントエンド領域全般と少しだけデザインができます。<br>
-      技術的なお手伝いは<NuxtLink ro="/works/">works</NuxtLink>への掲載を前提としてご依頼お願いします。<br>
+      技術的なお手伝いは<NuxtLink ro="/works/">
+        works
+      </NuxtLink>への掲載を前提としてご依頼お願いします。<br>
       また、デザイン関連の依頼はあまりお受けしていません。
     </p>
     <p>
-      ご連絡はDiscord[ken7253#4915]か<NuxtLink to="https://twitter.com/ken7253_" target="_blank" external>Twitter</NuxtLink>からお願いします。<br>
+      ご連絡はDiscord[ken7253#4915]か<NuxtLink
+        to="https://twitter.com/ken7253_"
+        target="_blank"
+        external
+      >
+        Twitter
+      </NuxtLink>からお願いします。<br>
       メールでも大丈夫ですが、見逃す可能性が高いのでDiscordでご連絡ください。
     </p>
   </div>
 </template>
 
 <script lang="ts" setup>
+import {definePageMeta} from '#imports';
+
 const currentCareer = new Date().getFullYear() - 2019;
 
 definePageMeta({
