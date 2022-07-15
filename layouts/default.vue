@@ -2,28 +2,53 @@
   <div :class="$style.root">
     <header :class="$style.header">
       <div :class="$style['header-inner']">
-        <NuxtLink :class="$style.title" to="/">
-          <h1 v-if="isTop">dairoku studio</h1>
+        <NuxtLink
+          :class="$style.title"
+          to="/"
+        >
+          <h1 v-if="isTop">
+            dairoku studio
+          </h1>
           <span v-else>dairoku studio</span>
         </NuxtLink>
-          <div :class="$style.menu">
-            <NuxtLink to="/works/">works</NuxtLink>
-            <NuxtLink to="/about/">about</NuxtLink>
-            <NuxtLink to="/post/">post</NuxtLink>
-            <button :class="$style['dark-mode']" role="checkbox" :aria-checked="darkMode" @click="toggleDarkMode">
-              <span :class="$style['speaker-only']">ダークモード</span>
-              <icon-moon :class="$style.icon" v-if="darkMode"></icon-moon>
-              <icon-sun :class="$style.icon" v-if="!darkMode"></icon-sun>
-            </button>
-          </div>
+        <div :class="$style.menu">
+          <NuxtLink to="/works/">
+            works
+          </NuxtLink>
+          <NuxtLink to="/about/">
+            about
+          </NuxtLink>
+          <NuxtLink to="/post/">
+            post
+          </NuxtLink>
+          <button
+            :class="$style['dark-mode']"
+            role="checkbox"
+            :aria-checked="darkMode"
+            @click="toggleDarkMode"
+          >
+            <span :class="$style['speaker-only']">ダークモード</span>
+            <icon-moon
+              v-if="darkMode"
+              :class="$style.icon"
+            />
+            <icon-sun
+              v-if="!darkMode"
+              :class="$style.icon"
+            />
+          </button>
+        </div>
       </div>
     </header>
     <main>
-      <div v-if="!isTop" :class="$style['page-title']">
-        <h1>{{route.meta.title}}</h1>
+      <div
+        v-if="!isTop"
+        :class="$style['page-title']"
+      >
+        <h1>{{ route.meta.title }}</h1>
       </div>
       <div :class="$style.content">
-        <slot :class="$style['content-inner']"></slot>
+        <slot :class="$style['content-inner']" />
       </div>
     </main>
     <footer :class="$style.footer">
@@ -36,6 +61,7 @@
 
 <script lang="ts" setup>
 import { IconMoon, IconSun } from '~~/.nuxt/components';
+import { useRoute, useHead, ref, onMounted, watchEffect } from '#imports';
 
 const route = useRoute();
 const darkMode = ref(false);
@@ -79,6 +105,7 @@ onMounted(() => {
   width: 100%;
   color: var(--c-base-dark);
   backdrop-filter: blur(3px);
+  z-index: 1000;
 }
 .header::before {
   content: "";
