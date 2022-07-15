@@ -6,3 +6,4 @@
 
 - [Nuxt3](https://v3.nuxtjs.org/)
 - [Nuxt Content](https://content.nuxtjs.org/)
+- [Nuxt ColorMode](https://color-mode.nuxtjs.org/)

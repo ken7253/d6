@@ -41,9 +41,21 @@ export default defineComponent({
 <style module>
 .code {
   position: relative;
-  background-color: var(--c-light);
   border-radius: 5px;
   padding: 10px 20px;
+  z-index: 0;
+  overflow: hidden;
+}
+.code::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--c-static-dark);
+  opacity: .9;
+  z-index: -1;
 }
 .inner {
   overflow-x: auto;
@@ -66,7 +78,6 @@ export default defineComponent({
   top: 0;
   right: 0;
   padding: 0 10px;
-  border-radius: 0 5px 0 0;
   background-color: var(--c-lightest);
   line-height: 1.5;
   font-size: .9em;
@@ -83,7 +94,6 @@ export default defineComponent({
   left: 0;
   padding: 0 10px;
   background-color: var(--c-lightest);
-  border-radius: 5px 0 0 0;
   line-height: 1.5;
   font-size: .9em;
 }
@@ -98,6 +108,7 @@ pre code .line {
   min-height: 1rem;
   line-height: 1.6;
   font-size: .75rem;
+  color: var(--c-static-light);
 }
 .highlight {
   background-color: #ae7c1426;
