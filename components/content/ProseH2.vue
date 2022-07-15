@@ -1,6 +1,12 @@
 <template>
-  <h2 :id="id" :class="$style.heading">
-    <NuxtLink :href="`#${id}`" :class="$style.link">
+  <h2
+    :id="id"
+    :class="$style.heading"
+  >
+    <NuxtLink
+      :href="`#${id}`"
+      :class="$style.link"
+    >
       <slot />
     </NuxtLink>
   </h2>

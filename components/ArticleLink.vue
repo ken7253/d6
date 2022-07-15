@@ -1,7 +1,15 @@
 <template>
-  <NuxtLink :to="props.link" :class="$style.post" :external="targetBlank" :target="targetBlank ? '_blank' : '_self'">
-    <slot></slot>
-    <time :class="$style.date" :datetime="props.date"> / {{ props.date }}</time>
+  <NuxtLink
+    :to="props.link"
+    :class="$style.post"
+    :external="targetBlank"
+    :target="targetBlank ? '_blank' : '_self'"
+  >
+    <slot />
+    <time
+      :class="$style.date"
+      :datetime="props.date"
+    > / {{ props.date }}</time>
   </NuxtLink>
 </template>
 
