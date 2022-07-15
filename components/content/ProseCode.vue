@@ -41,7 +41,7 @@ export default defineComponent({
   position: relative;
   background-color: var(--c-light);
   border-radius: 5px;
-  padding: 20px;
+  padding: 5px 20px;
 }
 .lang {
   position: absolute;
@@ -72,7 +72,11 @@ export default defineComponent({
 pre code .line {
   display: block;
   min-height: 1rem;
-  line-height: 1.5;
+  line-height: 1.6;
   font-size: .75rem;
+}
+.highlight {
+  background-color: #ae7c1426;
+  border-left: solid 4px #ae7c1466;
 }
 </style>
