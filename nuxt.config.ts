@@ -7,6 +7,9 @@ export default defineNuxtConfig({
   ],
   content: {
     // https://content.nuxtjs.org/api/configuration/
+    highlight: {
+      theme: 'github-dark',
+    }
   },
   app: {
     head: {
