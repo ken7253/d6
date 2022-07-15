@@ -24,15 +24,17 @@ export default defineComponent({
 
 <template>
   <div :class="$style.code">
-    <span
-      v-if="$props.language"
-      :class="$style.lang"
-    > {{ $props.language }} </span>
-    <span
-      v-if="$props.filename"
-      :class="$style.filename"
-    > {{ $props.filename }} </span>
-    <slot />
+    <div :class="$style.inner">
+      <span
+        v-if="$props.language"
+        :class="$style.lang"
+      > {{ $props.language }} </span>
+      <span
+        v-if="$props.filename"
+        :class="$style.filename"
+      > {{ $props.filename }} </span>
+      <slot />
+    </div>
   </div>
 </template>
 
@@ -42,6 +44,22 @@ export default defineComponent({
   background-color: var(--c-light);
   border-radius: 5px;
   padding: 5px 20px;
+}
+.inner {
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--c-secondary) var(--c-lighter);
+}
+.inner::-webkit-scrollbar {
+  height: 7px;
+}
+.inner::-webkit-scrollbar-track {
+  background-color: var(--c-secondary);
+  border-radius: 100vh;
+}
+.inner::-webkit-scrollbar-thumb {
+  border-radius: 100vh;
+  background-color: var(--c-lighter);
 }
 .lang {
   position: absolute;
