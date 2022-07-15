@@ -1,42 +1,8 @@
-# Nuxt 3 Minimal Starter
+# dairoku-studio
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+[![Lint](https://github.com/ken7253/d6/actions/workflows/lint.yml/badge.svg?branch=main)](https://github.com/ken7253/d6/actions/workflows/lint.yml)
 
-## Setup
+## dependencies package documents
 
-Make sure to install the dependencies:
-
-```bash
-# yarn
-yarn install
-
-# npm
-npm install
-
-# pnpm
-pnpm install --shamefully-hoist
-```
-
-## Development Server
-
-Start the development server on http://localhost:3000
-
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.
+- [Nuxt3](https://v3.nuxtjs.org/)
+- [Nuxt Content](https://content.nuxtjs.org/)
