@@ -64,7 +64,7 @@ p,ul,ol,li {
   --c-static-base-light: #c6c8ec;
   --c-static-secondary: #70909e;
   --c-static-important: #db3131;
-  --content-max-size: 1200px;
+  --content-max-size: 900px;
   --transition-time: 250ms;
   --font-family-jp: 'M PLUS 1', 'Source Han Sans JP', 'Noto Sans JP', "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
 }
