@@ -77,7 +77,7 @@ export default defineComponent({
   position: absolute;
   top: 0;
   right: 0;
-  padding: 0 10px;
+  padding: 0 10px 3px 10px;
   background-color: var(--c-lightest);
   line-height: 1.5;
   font-size: .9em;
@@ -92,7 +92,7 @@ export default defineComponent({
   position: absolute;
   top: 0;
   left: 0;
-  padding: 0 10px;
+  padding: 0 10px 3px 10px;
   background-color: var(--c-lightest);
   line-height: 1.5;
   font-size: .9em;
