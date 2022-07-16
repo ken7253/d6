@@ -69,10 +69,7 @@ const isTop = route.path === '/';
 
 const toggleDarkMode = () => {
   colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark';
-  console.log(colorMode.preference, colorMode.value);
 }
-
-console.log(colorMode.preference, colorMode.value);
 
 useHead({
   title: `${route.meta.title}${isTop ? '' : ' - '}dairoku studio`
