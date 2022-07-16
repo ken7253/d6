@@ -127,6 +127,11 @@ const toggleDarkMode = () => {
 .title > * {
   font-size: 1rem;
   font-weight: 500;
+  color: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  margin-block: inherit;
+  margin-inline: inherit;
 }
 .menu {
   display: flex;
