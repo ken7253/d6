@@ -15,9 +15,7 @@
           to="https://developer.mozilla.org/ja/docs/Web"
           target="_blank"
           external
-        >
-          MDN
-        </NuxtLink>を読むこと
+        >MDN</NuxtLink>を読むこと
       </li>
     </ul>
     <h3>苦手なこと</h3>

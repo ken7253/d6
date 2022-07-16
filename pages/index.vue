@@ -7,19 +7,13 @@
     <h2>pages</h2>
     <ul :class="$style.link">
       <li :class="$style.item">
-        <NuxtLink to="/works/">
-          works
-        </NuxtLink>
+        <NuxtLink to="/works/">works</NuxtLink>
       </li>
       <li :class="$style.item">
-        <NuxtLink to="/about/">
-          about
-        </NuxtLink>
+        <NuxtLink to="/about/">about</NuxtLink>
       </li>
       <li :class="$style.item">
-        <NuxtLink to="/post/">
-          post
-        </NuxtLink>
+        <NuxtLink to="/post/">post</NuxtLink>
       </li>
     </ul>
     <zenn-article />
