@@ -61,7 +61,7 @@
 
 <script lang="ts" setup>
 import { IconMoon, IconSun } from '~~/.nuxt/components';
-import { useRoute, useHead, useColorMode } from '#imports';
+import { useRoute, useColorMode } from '#imports';
 
 const route = useRoute();
 const colorMode = useColorMode();
@@ -70,10 +70,6 @@ const isTop = route.path === '/';
 const toggleDarkMode = () => {
   colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark';
 }
-
-useHead({
-  title: `${route.meta.title}${isTop ? '' : ' - '}dairoku studio`
-});
 </script>
 
 <style module>

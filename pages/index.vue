@@ -27,11 +27,11 @@
 </template>
 
 <script lang="ts" setup>
-import { definePageMeta } from "#imports";
+import { useHead } from "#imports";
 
-definePageMeta({
-  title: "",
-});
+useHead({
+  title: '',
+})
 </script>
 
 <style module>

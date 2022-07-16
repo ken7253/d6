@@ -5,10 +5,10 @@
 </template>
 
 <script lang="ts" setup>
-import {definePageMeta} from '#imports';
+import {useHead} from '#imports';
 
-definePageMeta({
+useHead({
   title: 'works',
   description: '作ったものとかの一覧ページ'
-})
+});
 </script>
