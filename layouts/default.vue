@@ -2,28 +2,53 @@
   <div :class="$style.root">
     <header :class="$style.header">
       <div :class="$style['header-inner']">
-        <NuxtLink :class="$style.title" to="/">
-          <h1 v-if="isTop">dairoku studio</h1>
+        <NuxtLink
+          :class="$style.title"
+          to="/"
+        >
+          <h1 v-if="isTop">
+            dairoku studio
+          </h1>
           <span v-else>dairoku studio</span>
         </NuxtLink>
-          <div :class="$style.menu">
-            <NuxtLink to="/works/">works</NuxtLink>
-            <NuxtLink to="/about/">about</NuxtLink>
-            <NuxtLink to="/post/">post</NuxtLink>
-            <button :class="$style['dark-mode']" role="checkbox" :aria-checked="darkMode" @click="toggleDarkMode">
-              <span :class="$style['speaker-only']">ダークモード</span>
-              <icon-moon :class="$style.icon" v-if="darkMode"></icon-moon>
-              <icon-sun :class="$style.icon" v-if="!darkMode"></icon-sun>
-            </button>
-          </div>
+        <div :class="$style.menu">
+          <NuxtLink to="/works/">
+            works
+          </NuxtLink>
+          <NuxtLink to="/about/">
+            about
+          </NuxtLink>
+          <NuxtLink to="/post/">
+            post
+          </NuxtLink>
+          <button
+            :class="$style['dark-mode']"
+            :aria-checked="colorMode.value === 'dark'"
+            role="checkbox"
+            @click="toggleDarkMode"
+          >
+            <span :class="$style['speaker-only']">ダークモード</span>
+            <icon-sun
+              v-if="colorMode.value === 'light'"
+              :class="$style.icon"
+            />
+            <icon-moon
+              v-else
+              :class="$style.icon"
+            />
+          </button>
+        </div>
       </div>
     </header>
     <main>
-      <div v-if="!isTop" :class="$style['page-title']">
-        <h1>{{route.meta.title}}</h1>
+      <div
+        v-if="!isTop"
+        :class="$style['page-title']"
+      >
+        <h1>{{ route.meta.title }}</h1>
       </div>
       <div :class="$style.content">
-        <slot :class="$style['content-inner']"></slot>
+        <slot :class="$style['content-inner']" />
       </div>
     </main>
     <footer :class="$style.footer">
@@ -36,35 +61,18 @@
 
 <script lang="ts" setup>
 import { IconMoon, IconSun } from '~~/.nuxt/components';
+import { useRoute, useHead, useColorMode } from '#imports';
 
 const route = useRoute();
-const darkMode = ref(false);
+const colorMode = useColorMode();
 const isTop = route.path === '/';
+
+const toggleDarkMode = () => {
+  colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark';
+}
 
 useHead({
   title: `${route.meta.title}${isTop ? '' : ' - '}dairoku studio`
-});
-
-const toggleDarkMode = () => {
-  darkMode.value = !darkMode.value;
-  updateMeta();
-}
-
-const updateMeta = () => {
-  useHead({
-    meta: [
-      { name: "color-scheme", content: darkMode.value ? "dark" : "light" },
-    ],
-    bodyAttrs: {
-      class: darkMode.value ? "dark" : "light",
-    },
-  });
-};
-
-onMounted(() => {
-  /** @todo 初回描画時にちらつきが発生するので修正する */
-  darkMode.value = matchMedia("(prefers-color-scheme: dark)").matches;
-  watchEffect(() => updateMeta());
 });
 </script>
 
@@ -79,6 +87,7 @@ onMounted(() => {
   width: 100%;
   color: var(--c-base-dark);
   backdrop-filter: blur(3px);
+  z-index: 1000;
 }
 .header::before {
   content: "";

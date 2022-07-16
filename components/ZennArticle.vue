@@ -1,19 +1,41 @@
 <template>
   <div>
     <h2>記事一覧</h2>
-    <p v-if="articles.length === 0">記事の取得に失敗しました</p>
-    <ul v-else :class="$style.artical">
-      <li :class="$style.item" v-for="article in articles" :key="article.guid">
-        <ArticleLink :link="article.link" :date="article.pubDate" target-blank>{{ article.title }}</ArticleLink>
+    <p v-if="articles.length === 0">
+      記事の取得に失敗しました
+    </p>
+    <ul
+      v-else
+      :class="$style.artical"
+    >
+      <li
+        v-for="article in articles"
+        :key="article.guid"
+        :class="$style.item"
+      >
+        <ArticleLink
+          :link="article.link"
+          :date="article.pubDate"
+          target-blank
+        >
+          {{ article.title }}
+        </ArticleLink>
       </li>
     </ul>
     <div :class="$style['read-more']">
-      <NuxtLink :class="$style.anchor" href="https://zenn.dev/ken7253" target="_blank">すべての記事を見る</NuxtLink>
+      <NuxtLink
+        :class="$style.anchor"
+        href="https://zenn.dev/ken7253"
+        target="_blank"
+      >
+        すべての記事を見る
+      </NuxtLink>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
+import {ref} from '#imports';
 const articles = ref([]);
 
 const base = 'https://api.rss2json.com/v1/api.json';
