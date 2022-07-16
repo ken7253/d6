@@ -1,32 +1,44 @@
 <template>
-  <ul :class="$style['post-list']">
-    <li
-      v-for="post in postData"
-      :key="post.date"
-      :class="$style.post"
-    >
-      <ArticleLink
-        :link="post._path"
-        :date="post.date.split('T')[0]"
+  <div>
+    <ul :class="$style['post-list']">
+      <ContentList
+        v-slot="{ list }"
+        path="/post"
       >
-        {{ post.title }}
-      </ArticleLink>
-    </li>
-  </ul>
+        <li
+          v-for="post in (props.max === -1 ? list.slice().reverse() : limitedContent)"
+          :key="post.date"
+          :class="$style.post"
+        >
+          <ArticleLink
+            :link="post._path"
+            :date="post.date.split('T')[0]"
+          >
+            {{ post.title }}
+          </ArticleLink>
+        </li>
+      </ContentList>
+    </ul>
+  </div>
 </template>
 
 <script lang="ts" setup>
-import type { ParsedContent } from "@nuxt/content/dist/runtime/types";
-import { ref, queryContent } from '#imports';
+import { queryContent } from '#imports';
 
-const postData = ref<ParsedContent[]>([]);
+const props = defineProps({
+  max: {
+    type: Number,
+    default: -1,
+  }
+})
 
-queryContent('post').find().then((v) => {
-  postData.value = v.reverse();
-});
+const limitedContent = await queryContent('post').sort({date: 1}).limit(props.max).find();
 </script>
 
 <style module>
+.post-list {
+  padding: 0;
+}
 .post {
   list-style-type: none;
 }
