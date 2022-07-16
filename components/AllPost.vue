@@ -32,7 +32,7 @@ const props = defineProps({
   }
 })
 
-const limitedContent = await queryContent('post').sort({date: 1}).limit(props.max).find();
+const limitedContent = await queryContent('post').sort({date: -1}).limit(props.max).find();
 </script>
 
 <style module>
