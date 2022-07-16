@@ -68,5 +68,8 @@ const currentCareer = new Date().getFullYear() - 2019;
 
 useHead({
   title: 'about',
+  meta: [
+    { name: 'description', content: '私について、スキルや好みなど' }
+  ]
 })
 </script>

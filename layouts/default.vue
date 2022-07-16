@@ -42,7 +42,7 @@
     </header>
     <main>
       <div
-        v-if="!(ignoreH1.includes($route.name.toString()))"
+        v-if="!(ignoreH1.includes($route.name))"
         :class="$style['page-title']"
       >
         <h1>{{ $route.name }}</h1>
@@ -53,18 +53,34 @@
     </main>
     <footer :class="$style.footer">
       <div :class="$style['footer-inner']">
-        <small>© ken7253</small>
+        <NuxtLink
+          :class="$style['footer-icon']"
+          to="https://github.com/ken7253"
+          target="_blank"
+          external
+        >
+          <IconGithub :class="$style.icon" />
+        </NuxtLink>
+        <NuxtLink
+          :class="$style['footer-icon']"
+          to="https://twitter.com/ken7253_"
+          target="_blank"
+          external
+        >
+          <IconTwitter :class="$style.icon" />
+        </NuxtLink>
+        <small :class="$style.copyright">© ken7253</small>
       </div>
     </footer>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { IconMoon, IconSun } from '~~/.nuxt/components';
+import { IconMoon, IconSun, IconGithub, IconTwitter } from '~~/.nuxt/components';
 import { useColorMode } from '#imports';
 
 const colorMode = useColorMode();
-const ignoreH1 = ['index', 'post-slug'];
+const ignoreH1:(string | symbol)[] = ['index', 'post-slug'];
 
 const toggleDarkMode = () => {
   colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark';
@@ -111,6 +127,11 @@ const toggleDarkMode = () => {
 .title > * {
   font-size: 1rem;
   font-weight: 500;
+  color: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  margin-block: inherit;
+  margin-inline: inherit;
 }
 .menu {
   display: flex;
@@ -159,10 +180,19 @@ main {
   background-color: var(--c-base-light);
 }
 .footer-inner {
+  display: flex;
+  align-items: center;
   max-width: var(--content-max-size);
   margin: auto;
   color: inherit;
   text-align: center;
+}
+.footer-icon {
+  height: 45px;
+}
+.copyright {
+  margin-left: auto;
+  margin-right: 0;
 }
 .icon {
   width: 45px;
