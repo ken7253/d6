@@ -9,6 +9,8 @@ import {useHead} from '#imports';
 
 useHead({
   title: 'works',
-  description: '作ったものとかの一覧ページ'
+  meta: [
+    { name: 'description', content: '作ったものとかの一覧ページ' }
+  ]
 });
 </script>

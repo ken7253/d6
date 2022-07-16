@@ -33,6 +33,9 @@ import { useHead } from "#imports";
 
 useHead({
   title: '',
+  meta: [
+    { name: 'description', content: '技術記事以外のブログや作ったものの置き場として利用しています。' }
+  ]
 })
 </script>
 

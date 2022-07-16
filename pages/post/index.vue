@@ -9,6 +9,9 @@
 import {useHead} from '#imports';
 
 useHead({
-  title: 'post'
+  title: 'post',
+  meta: [
+    { name: 'description', content: '技術記事以外の普通のブログ一覧ページ' }
+  ]
 });
 </script>
