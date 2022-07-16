@@ -17,6 +17,8 @@
       </li>
     </ul>
     <zenn-article />
+    <h2>普通のブログ</h2>
+    <AllPost :max="5" />
   </div>
 </template>
 

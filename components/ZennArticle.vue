@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>記事一覧</h2>
+    <h2>技術的な記事</h2>
     <p v-if="articles.length === 0">
       記事の取得に失敗しました
     </p>
