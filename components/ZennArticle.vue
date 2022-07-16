@@ -15,7 +15,7 @@
       >
         <ArticleLink
           :link="article.link"
-          :date="article.pubDate"
+          :date="article.pubDate.split(' ')[0]"
           target-blank
         >
           {{ article.title }}
