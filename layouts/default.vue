@@ -6,7 +6,7 @@
           :class="$style.title"
           to="/"
         >
-          <h1 v-if="isTop">
+          <h1 v-if="$route.path === '/'">
             dairoku studio
           </h1>
           <span v-else>dairoku studio</span>
@@ -42,10 +42,10 @@
     </header>
     <main>
       <div
-        v-if="!isTop"
+        v-if="!(ignoreH1.includes($route.name.toString()))"
         :class="$style['page-title']"
       >
-        <h1>{{ route.meta.title }}</h1>
+        <h1>{{ $route.name }}</h1>
       </div>
       <div :class="$style.content">
         <slot :class="$style['content-inner']" />
@@ -61,19 +61,14 @@
 
 <script lang="ts" setup>
 import { IconMoon, IconSun } from '~~/.nuxt/components';
-import { useRoute, useHead, useColorMode } from '#imports';
+import { useColorMode } from '#imports';
 
-const route = useRoute();
 const colorMode = useColorMode();
-const isTop = route.path === '/';
+const ignoreH1 = ['index', 'post-slug'];
 
 const toggleDarkMode = () => {
   colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark';
 }
-
-useHead({
-  title: `${route.meta.title}${isTop ? '' : ' - '}dairoku studio`
-});
 </script>
 
 <style module>

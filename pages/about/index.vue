@@ -15,15 +15,12 @@
           to="https://developer.mozilla.org/ja/docs/Web"
           target="_blank"
           external
-        >
-          MDN
-        </NuxtLink>を読むこと
+        >MDN</NuxtLink>を読むこと
       </li>
     </ul>
     <h3>苦手なこと</h3>
     <ul>
       <li>反復作業</li>
-      <li>細かいチェック作業</li>
       <li>規則正しい生活</li>
     </ul>
     <h3>スキル等</h3>
@@ -65,11 +62,11 @@
 </template>
 
 <script lang="ts" setup>
-import {definePageMeta} from '#imports';
+import {useHead} from '#imports';
 
 const currentCareer = new Date().getFullYear() - 2019;
 
-definePageMeta({
+useHead({
   title: 'about',
 })
 </script>

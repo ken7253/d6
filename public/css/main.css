@@ -30,11 +30,11 @@ img {
   height: auto;
 }
 
-a {
+a[href] {
   text-underline-offset: 4px;
 }
 
-a:hover {
+a[href]:hover {
   opacity: .8;
 }
 

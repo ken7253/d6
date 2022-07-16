@@ -1,33 +1,41 @@
 <template>
-  <div>
+  <div :class="$style.root">
     <h2>作ったものとか</h2>
     <p v-if="!works">
       データを取得できませんでした
     </p>
-    <div
+    <table
       v-for="(work, name) in works"
       :key="name"
-      :class="$style.category"
+      :class="$style.table"
     >
-      <h3 :class="$style['title-cat']">
+      <caption :class="$style.caption">
         {{ name }}
-      </h3>
-      <div
-        v-for="(item, index) in works[name]"
-        :key="index"
-        :class="$style.item"
-      >
-        <h4 :class="$style['item-name']">
-          <NuxtLink
-            :href="item.link"
-            target="_blank"
+      </caption>
+      <tbody>
+        <tr
+          v-for="(item, index) in works[name]"
+          :key="index"
+          :class="$style.tr"
+        >
+          <th
+            scope="row"
+            :class="$style.th"
           >
-            {{ item.title }}
-          </NuxtLink>
-        </h4>
-        <p>{{ item.description }}</p>
-      </div>
-    </div>
+            <NuxtLink
+              :href="item.link"
+              :target="item.link ? '_blank' : ''"
+              external
+            >
+              {{ item.title }}
+            </NuxtLink>
+          </th>
+          <td :class="$style.td">
+            {{ item.description }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
@@ -36,18 +44,36 @@ import { works } from "public/data/works.json";
 </script>
 
 <style module>
-.title-cat {
-  padding-bottom: .5em;
+.root {
+  --local-item-padding: clamp(5px, 2vw, 20px);
 }
-.category {
-  padding: .25em 0;
+.table {
+  width: 100%;
+  margin-bottom: 20px;
 }
-.item {
-  padding-bottom: .25rem;
+.caption {
+  margin: 0 2px;
+  padding: 0 var(--local-item-padding);
+  background-color: var(--c-light);
+  text-align: start;
+  font-weight: 600;
+  font-size: 1.25rem;
 }
-.item-name {
-  list-style-type: none;
-  text-underline-offset: 4px;
-  padding-bottom: 4px;
+.tr:nth-child(2n) {
+  background-color: var(--c-light);
+}
+.tr:nth-child(2n-1) {
+  background-color: var(--c-lightest);
+}
+.th {
+  width: 30%;
+  padding: 5px var(--local-item-padding);
+  text-align: start;
+  font-weight: 600;
+}
+.td {
+  width: 70%;
+  padding: 5px var(--local-item-padding);
+  text-align: start;
 }
 </style>
