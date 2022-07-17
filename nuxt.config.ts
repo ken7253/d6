@@ -20,13 +20,17 @@ export default defineNuxtConfig({
       htmlAttrs: { lang: 'ja' },
       meta: [
         { name: 'color-scheme', content: 'light dark' },
+        { name: 'theme-color', content: '#1f214e' },
       ],
       link: [
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true },
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         { rel: 'stylesheet', href: '/css/main.css' },
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=M+PLUS+1&display=swap'}
       ],
     }
+  },
+  typescript: {
+    strict: true,
   }
 })
