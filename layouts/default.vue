@@ -59,7 +59,10 @@
           target="_blank"
           external
         >
-          <IconGithub :class="$style.icon" />
+          <IconGithub
+            :class="$style.icon"
+            title="Github"
+          />
         </NuxtLink>
         <NuxtLink
           :class="$style['footer-icon']"
@@ -67,7 +70,10 @@
           target="_blank"
           external
         >
-          <IconTwitter :class="$style.icon" />
+          <IconTwitter
+            :class="$style.icon"
+            title="Twitter"
+          />
         </NuxtLink>
         <small :class="$style.copyright">© ken7253</small>
       </div>
@@ -76,11 +82,12 @@
 </template>
 
 <script lang="ts" setup>
+import type { RouteRecordName } from 'vue-router';
 import { IconMoon, IconSun, IconGithub, IconTwitter } from '~~/.nuxt/components';
 import { useColorMode } from '#imports';
 
 const colorMode = useColorMode();
-const ignoreH1:(string | symbol)[] = ['index', 'post-slug'];
+const ignoreH1:(RouteRecordName | null | undefined )[] = ['index', 'post-slug'];
 
 const toggleDarkMode = () => {
   colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark';
