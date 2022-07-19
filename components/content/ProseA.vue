@@ -47,7 +47,7 @@ useFetch(
 </script>
 
 <template>
-  <div>
+  <div style="display: inline-block;">
     <NuxtLink
       v-if="cardData"
       :class="$style['card-link']"
