@@ -6,8 +6,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "lint": "eslint .",
-    "maintenance": "npm dedupe && npm prune",
-    "postmaintenance": "npm ci"
+    "maintenance": "npm dedupe && npm prune"
   },
   "volta": {
     "node": "16.16.0"
