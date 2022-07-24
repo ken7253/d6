@@ -1,0 +1,27 @@
+name: Maintenance
+on:
+  schedule:
+    - cron: '0 8 * * 0'
+  workflow_dispatch:
+jobs:
+  optimization:
+    run-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          ref: 'develop'
+      - uses: actions/setup-node@v3
+      - name: Install modules
+        run: npm ci
+      - name: dependencies optimization
+        run: npm run maintenance
+      - name: set up git
+        run: |
+          git config --local user.email "ken7253@gmail.com"
+          git config --local user.name "ken7253"
+      - name: commit package-lock.json
+        run: |
+          git add .
+          git commit -m "MAINTENANCE: dependencies optimization"
+          git push origin develop
