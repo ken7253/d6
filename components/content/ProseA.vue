@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useFetch, ref } from '#imports';
+import { useFetch, useSlots, ref, onMounted } from '#imports';
 
 interface LinkCard {
   title: string;
@@ -23,6 +23,10 @@ const props =  defineProps({
 
 const cardData = ref<Partial<LinkCard>>();
 
+const showCard = ref(false);
+const slot = ref(useSlots());
+const slotElement = slot.value.default ? slot.value.default() : null; 
+
 useFetch(
   props.href,
   {
@@ -44,12 +48,18 @@ useFetch(
 
   cardData.value = {title, description, image, icon, themeColor, url};
 });
+
+onMounted(() => {
+  if (slotElement?.at(0)) {
+    showCard.value = slotElement.at(0)?.children === props.href;
+  }
+});
 </script>
 
 <template>
   <div style="display: inline-block;">
     <NuxtLink
-      v-if="cardData"
+      v-if="showCard && cardData"
       :class="$style['card-link']"
       :to="href"
       :target="blank ? '_blank' : ''"
