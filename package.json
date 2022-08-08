@@ -21,7 +21,7 @@
     "eslint-plugin-vue": "^9.2.0",
     "npm-check-updates": "^15.3.4",
     "nuxt": "3.0.0-rc.6",
-    "sass": "^1.53.0",
+    "sass": "^1.54.3",
     "ts-node": "^10.9.1"
   },
   "dependencies": {
