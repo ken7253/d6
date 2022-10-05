@@ -16,10 +16,10 @@
     "@typescript-eslint/eslint-plugin": "^5.30.6",
     "@typescript-eslint/parser": "^5.30.6",
     "@vue/eslint-config-typescript": "^11.0.0",
-    "dayjs": "^1.11.4",
+    "dayjs": "^1.11.5",
     "eslint": "^8.20.0",
     "eslint-plugin-vue": "^9.2.0",
-    "npm-check-updates": "^15.3.4",
+    "npm-check-updates": "^16.3.4",
     "nuxt": "3.0.0-rc.6",
     "sass": "^1.53.0",
     "ts-node": "^10.9.1"
