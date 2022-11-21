@@ -19,7 +19,7 @@
     "dayjs": "^1.11.6",
     "eslint": "^8.26.0",
     "eslint-plugin-vue": "^9.6.0",
-    "npm-check-updates": "^16.3.15",
+    "npm-check-updates": "^16.4.1",
     "nuxt": "^3.0.0-rc.12",
     "sass": "^1.55.0",
     "ts-node": "^10.9.1"
