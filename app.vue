@@ -7,18 +7,18 @@
 <script lang="ts" setup>
 import { useHead, useRoute } from "#imports";
 
+const { host } = new URL(import.meta.url);
 const route = useRoute();
-const DOMAIN_NAME = "https://dairoku-studio.com";
 
 useHead({
   meta: [
     {
       property: "og:image",
-      content: "https://dairoku-studio.com/site-img.jpg",
+      content: `${host}/site-image.jpg`,
     },
     { property: "og:type", content: "website" },
     { property: "og:site_name", content: "dairoku-studio.com" },
-    { property: "og:url", content: `${DOMAIN_NAME}${route.fullPath}` },
+    { property: "og:url", content: `${host}${route.fullPath}` },
     { property: "og:title", content: "dairoku-studio" },
     { property: "twitter:card", content: "summary" },
     { property: "twitter:site", content: "@ken7253_" },
