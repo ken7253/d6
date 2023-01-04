@@ -14,7 +14,7 @@ useHead({
   meta: [
     {
       property: "og:image",
-      content: `${host}/site-image.jpg`,
+      content: `${host}/site-icon.jpg`,
     },
     { property: "og:type", content: "website" },
     { property: "og:site_name", content: "dairoku-studio.com" },
