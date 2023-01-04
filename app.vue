@@ -12,14 +12,14 @@ const route = useRoute();
 
 useHead({
   meta: [
-    {
-      property: "og:image",
-      content: `${host}/site-icon.jpg`,
-    },
     { property: "og:type", content: "website" },
     { property: "og:site_name", content: "dairoku-studio.com" },
     { property: "og:url", content: `${host}${route.fullPath}` },
     { property: "og:title", content: "dairoku-studio" },
+    {
+      property: "og:image",
+      content: `${host}/og-image.jpg`,
+    },
     { property: "twitter:card", content: "summary" },
     { property: "twitter:site", content: "@ken7253_" },
   ],
