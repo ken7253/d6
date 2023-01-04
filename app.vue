@@ -5,11 +5,11 @@
 </template>
 
 <script lang="ts" setup>
-import { useHead } from '#imports';
+import { useHead } from "#imports";
 
 useHead({
-  titleTemplate: (titleChunk: string) => {
+  titleTemplate: (titleChunk) => {
     return titleChunk ? `${titleChunk} - dairoku studio` : `dairoku studio`;
   },
-})
+});
 </script>
