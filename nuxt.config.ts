@@ -17,7 +17,7 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      htmlAttrs: { lang: "ja" },
+      htmlAttrs: { lang: "ja", prefix: "og:https://ogp.me/ns#" },
       meta: [
         { name: "color-scheme", content: "light dark" },
         { name: "theme-color", content: "#1f214e" },
