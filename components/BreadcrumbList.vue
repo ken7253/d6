@@ -1,25 +1,23 @@
 <script lang="ts" setup>
-import { useRoute } from '#app';
+import { computed } from 'vue';
 
-const route = useRoute();
-const pathList = route.fullPath.split('/').filter((v) => v !== '');
-const reduceJoin = (data: string[], targetIndex: number) => {
-  const cp = [...data];
-  return cp.slice(0, targetIndex + 1).join('/');
-};
+const props = defineProps({
+  current: {
+    type: String,
+    default: '/',
+  },
+});
+
+const pathList = computed(() => props.current.split('/').filter((v) => v !== ''));
+const reduceJoin = (list: string[], targetIndex: number) =>
+  [...list].slice(0, targetIndex + 1).join('/');
 </script>
 <template>
-  <div :class="$style.container">
+  <div v-if="$props.current !== '/'" :class="$style.container">
     <ul :class="$style.breadcrumb">
-      <li>
-        <NuxtLink href="/">Home</NuxtLink>
-      </li>
-      <li
-        v-for="(path, index) in pathList"
-        :key="reduceJoin(pathList, index)"
-        :class="$style.lower"
-      >
-        <NuxtLink :href="'/' + reduceJoin(pathList, index)">{{ path }}</NuxtLink>
+      <li><NuxtLink to="/">home</NuxtLink></li>
+      <li v-for="(path, index) in pathList" :key="path" :class="$style.path">
+        <NuxtLink :to="'/' + reduceJoin(pathList, index)">{{ path }}</NuxtLink>
       </li>
     </ul>
   </div>
@@ -37,9 +35,7 @@ const reduceJoin = (data: string[], targetIndex: number) => {
   font-size: 0.75rem;
   max-width: min(calc(100% - 40px), var(--content-max-size));
 }
-.lower::before {
-  content: '>';
-  padding: 0 4px;
-  font-size: 0.5em;
+.path::before {
+  content: '/';
 }
 </style>

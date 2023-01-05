@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.root">
     <AppHeader />
-    <BreadcrumbList v-if="$route.fullPath !== '/'" />
+    <BreadcrumbList :current="current.path" />
     <main>
       <div v-if="!ignoreH1.includes($route.name)" :class="$style['page-title']">
         <h1>{{ $route.name }}</h1>
@@ -35,11 +35,15 @@
 </template>
 
 <script lang="ts" setup>
+import { useRouter } from '#app';
 import type { RouteRecordName } from 'vue-router';
 import IconGithub from '~/components/icon/IconGithub.vue';
 import IconTwitter from '~/components/icon/IconTwitter.vue';
 import AppHeader from '~~/components/AppHeader.vue';
 import BreadcrumbList from '~~/components/BreadcrumbList.vue';
+
+const router = useRouter();
+const current = router.currentRoute;
 
 const ignoreH1: (RouteRecordName | null | undefined)[] = ['index', 'post-slug'];
 </script>
