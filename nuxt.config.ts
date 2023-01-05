@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     dataValue: 'theme',
   },
   content: {
+    defaultLocale: 'ja',
     // https://content.nuxtjs.org/api/configuration/
     highlight: {
       theme: 'github-dark-dimmed',
