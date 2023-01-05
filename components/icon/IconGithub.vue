@@ -1,6 +1,12 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" width="498" hight="512">
-    <title v-if="$props.title !== ''">{{ $props.title }}</title>
+  <svg
+    role="img"
+    :aria-label="$props?.title"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 496 512"
+    width="498"
+    hight="512"
+  >
     <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
     <path
       fill="currentColor"
@@ -13,7 +19,7 @@
 defineProps({
   title: {
     type: String,
-    default: '',
+    default: undefined,
   },
 });
 </script>
