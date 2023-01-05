@@ -49,7 +49,7 @@ const toggleDarkMode = () => {
   top: 0;
   height: var(--l-header-height);
   width: 100%;
-  color: var(--c-base-dark);
+  color: var(--c-static-base-light);
   backdrop-filter: blur(3px);
   z-index: 1000;
 }
@@ -59,7 +59,7 @@ const toggleDarkMode = () => {
   height: inherit;
   width: inherit;
   top: inherit;
-  background-color: var(--c-base-light);
+  background-color: var(--c-static-base-dark);
   z-index: -1;
   opacity: 0.5;
 }
@@ -75,7 +75,7 @@ const toggleDarkMode = () => {
 .title {
   line-height: 1;
   text-decoration: none;
-  color: inherit;
+  color: var(--c-darkest);
 }
 .title > * {
   font-size: 1rem;
@@ -96,7 +96,7 @@ const toggleDarkMode = () => {
   text-decoration: none;
 }
 .menu > a[aria-current='page'] {
-  color: var(--c-darkest);
+  color: var(--c-static-lightest);
 }
 .dark-mode {
   appearance: none;
