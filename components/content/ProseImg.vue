@@ -27,11 +27,12 @@ defineProps({
 
 <style module>
 .image {
-  border: solid 2px var(--c-dark);
-  border-radius: 5px;
+  background-color: var(--c-base-dark);
 }
-.image > img {
+img {
+  border: solid 3px var(--c-base-dark);
   display: block;
-  border-radius: 5px;
+  max-width: 100%;
+  height: auto;
 }
 </style>
