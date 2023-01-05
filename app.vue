@@ -7,8 +7,6 @@
 <script lang="ts" setup>
 import { useHead } from '#imports';
 
-const { host, protocol } = new URL(import.meta.url);
-
 useHead({
   meta: [
     { property: 'og:type', content: 'website' },
@@ -16,7 +14,7 @@ useHead({
     { property: 'og:title', content: 'dairoku-studio' },
     {
       property: 'og:image',
-      content: `${protocol}//${host}/ogp-thumbnail.png`,
+      content: `https://dairoku-studio.com/ogp-thumbnail.png`,
     },
     { property: 'twitter:card', content: 'summary' },
     { property: 'twitter:site', content: '@ken7253_' },
