@@ -16,7 +16,7 @@ useHead({
     { property: 'og:title', content: 'dairoku-studio' },
     {
       property: 'og:image',
-      content: `${protocol}//${host}/og-image.png`,
+      content: `${protocol}//${host}/ogp-thumbnail.png`,
     },
     { property: 'twitter:card', content: 'summary' },
     { property: 'twitter:site', content: '@ken7253_' },
