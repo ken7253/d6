@@ -1,5 +1,6 @@
 <template>
   <ContentDoc v-slot="{ doc }">
+    {{ content.title }}
     <ContentRenderer :value="doc" />
     <div :class="$style['after-content']">
       <span
@@ -12,9 +13,17 @@
 </template>
 
 <script lang="ts" setup>
-import { useHead } from '#app';
+import { useHead, useRoute } from '#app';
+import { queryContent } from '#imports';
+
+const route = useRoute();
+const content = await queryContent(route.fullPath).findOne();
+
 useHead({
-  meta: [{ property: 'og:type', content: 'article' }],
+  meta: [
+    { property: 'og:title', content: content.title },
+    { property: 'og:type', content: 'article' },
+  ],
 });
 </script>
 
