@@ -15,26 +15,21 @@ html {
   line-height: 2.1;
 }
 
-body {
+:where(ul[class]) {
   margin: 0;
   padding: 0;
 }
 
-ul[class] {
-  margin: 0;
-  padding: 0;
-}
-
-img {
+:where(img) {
   max-width: 100%;
   height: auto;
 }
 
-a[href] {
+:where(a[href]) {
   text-underline-offset: 4px;
 }
 
-a[href]:hover {
+:where(a[href]:hover) {
   opacity: 0.8;
 }
 
