@@ -14,7 +14,6 @@ useHead({
     { property: 'og:type', content: 'website' },
     { property: 'og:site_name', content: 'dairoku-studio.com' },
     { property: 'og:title', content: 'dairoku-studio' },
-    //{ property: 'og:url', content: `${protocol}//${host}${path}` },
     {
       property: 'og:image',
       content: `${protocol}//${host}/og-image.png`,
