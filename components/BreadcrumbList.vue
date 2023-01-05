@@ -34,8 +34,23 @@ const reduceJoin = (list: string[], targetIndex: number) =>
   display: flex;
   font-size: 0.75rem;
   max-width: min(calc(100% - 40px), var(--content-max-size));
+  align-items: baseline;
+}
+.breadcrumb::before {
+  content: '>';
+  padding-right: 4px;
+  font-size: 0.75em;
 }
 .path::before {
   content: '/';
+  padding: 0 4px;
+  font-size: 0.5em;
+}
+.path [aria-current='page'] {
+  color: var(--c-darkest);
+  text-decoration: none;
+}
+.path [aria-current='page']:hover {
+  text-decoration: underline;
 }
 </style>
