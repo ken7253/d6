@@ -4,9 +4,10 @@
     "ecmaVersion": "latest"
   },
   "extends": [
-    "plugin:vue/vue3-recommended",
     "eslint:recommended",
-    "@vue/typescript/recommended"
+    "plugin:vue/vue3-recommended",
+    "@vue/typescript/recommended",
+    "prettier"
   ],
   "plugins": [],
   "overrides": [

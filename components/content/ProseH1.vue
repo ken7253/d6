@@ -6,7 +6,7 @@
 
 <style module>
 .heading::before {
-  content: "#";
+  content: '#';
   padding-right: 1em;
 }
 </style>

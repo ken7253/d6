@@ -2,46 +2,47 @@
 export default defineNuxtConfig({
   nitro: {
     devServer: {
-      watch: ["components/**/*", "layouts/**/*", "content/**/*"],
+      watch: ['components/**/*', 'layouts/**/*', 'content/**/*'],
     },
   },
-  modules: ["@nuxt/content", "@nuxtjs/color-mode"],
+  modules: ['@nuxt/content', '@nuxtjs/color-mode'],
   colorMode: {
-    dataValue: "theme",
+    dataValue: 'theme',
   },
   content: {
+    defaultLocale: 'ja',
     // https://content.nuxtjs.org/api/configuration/
     highlight: {
-      theme: "github-dark-dimmed",
+      theme: 'github-dark-dimmed',
     },
   },
   app: {
     head: {
-      htmlAttrs: { lang: "ja", prefix: "og:https://ogp.me/ns#" },
+      htmlAttrs: { lang: 'ja', prefix: 'og: https://ogp.me/ns#' },
       meta: [
-        { name: "color-scheme", content: "light dark" },
-        { name: "theme-color", content: "#1f214e" },
+        { name: 'color-scheme', content: 'light dark' },
+        { name: 'theme-color', content: '#1f214e' },
       ],
       link: [
-        { rel: "preconnect", href: "https://fonts.googleapis.com" },
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         {
-          rel: "preconnect",
-          href: "https://fonts.gstatic.com",
-          crossorigin: "",
+          rel: 'preconnect',
+          href: 'https://fonts.gstatic.com',
+          crossorigin: '',
         },
-        { rel: "stylesheet", href: "/css/main.css" },
+        { rel: 'stylesheet', href: '/css/main.css' },
         {
-          rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css2?family=M+PLUS+1&display=swap",
-        },
-        {
-          rel: "icon",
-          sizes: "48x48",
-          href: "/favicon.ico",
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=M+PLUS+1&display=swap',
         },
         {
-          rel: "apple-touch-icon",
-          href: "/site-icon.jpg",
+          rel: 'icon',
+          sizes: '48x48',
+          href: '/favicon.ico',
+        },
+        {
+          rel: 'apple-touch-icon',
+          href: '/site-icon.jpg',
         },
       ],
     },

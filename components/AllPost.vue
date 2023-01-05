@@ -1,19 +1,13 @@
 <template>
   <div>
     <ul :class="$style['post-list']">
-      <ContentList
-        v-slot="{ list }"
-        path="/post"
-      >
+      <ContentList v-slot="{ list }" path="/post">
         <li
-          v-for="post in (props.max === -1 ? list.slice().reverse() : limitedContent)"
+          v-for="post in props.max === -1 ? list.slice().reverse() : limitedContent"
           :key="post.date"
           :class="$style.post"
         >
-          <ArticleLink
-            :link="post._path"
-            :date="post.date.split('T')[0]"
-          >
+          <ArticleLink :link="post._path" :date="post.date.split('T')[0]">
             {{ post.title }}
           </ArticleLink>
         </li>
@@ -29,10 +23,10 @@ const props = defineProps({
   max: {
     type: Number,
     default: -1,
-  }
-})
+  },
+});
 
-const limitedContent = await queryContent('post').sort({date: -1}).limit(props.max).find();
+const limitedContent = await queryContent('post').sort({ date: -1 }).limit(props.max).find();
 </script>
 
 <style module>

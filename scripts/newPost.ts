@@ -1,11 +1,11 @@
-import fs from "fs";
-import path from "path";
-import dayjs from "dayjs";
+import fs from 'fs';
+import path from 'path';
+import dayjs from 'dayjs';
 
 const config = {
-  postDir: ["content", "post"],
+  postDir: ['content', 'post'],
   fileName: (date: string) => `${date}-post`,
-  dateFormat: "YYYY-MM-DD",
+  dateFormat: 'YYYY-MM-DD',
 };
 
 const now = dayjs().format(config.dateFormat);
@@ -21,5 +21,5 @@ draft: true
 `;
 
 fs.writeFile(path.join(...config.postDir, config.fileName(now)), data, () => {
-  console.log("test");
+  console.log('test');
 });

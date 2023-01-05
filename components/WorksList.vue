@@ -1,32 +1,17 @@
 <template>
   <div :class="$style.root">
     <h2>作ったものとか</h2>
-    <p v-if="!works">
-      データを取得できませんでした
-    </p>
-    <table
-      v-for="(work, name) in works"
-      :key="name"
-      :class="$style.table"
-    >
+    <p v-if="!works">データを取得できませんでした</p>
+    <table v-for="(work, name) in works" :key="name" :class="$style.table">
       <caption :class="$style.caption">
-        {{ name }}
+        {{
+          name
+        }}
       </caption>
       <tbody>
-        <tr
-          v-for="(item, index) in works[name]"
-          :key="index"
-          :class="$style.tr"
-        >
-          <th
-            scope="row"
-            :class="$style.th"
-          >
-            <NuxtLink
-              :href="item.link"
-              :target="item.link ? '_blank' : ''"
-              external
-            >
+        <tr v-for="(item, index) in works[name]" :key="index" :class="$style.tr">
+          <th scope="row" :class="$style.th">
+            <NuxtLink :href="item.link" :target="item.link ? '_blank' : ''" external>
               {{ item.title }}
             </NuxtLink>
           </th>
@@ -40,7 +25,7 @@
 </template>
 
 <script lang="ts" setup>
-import { works } from "public/data/works.json";
+import { works } from 'public/data/works.json';
 </script>
 
 <style module>

@@ -6,14 +6,14 @@
 
 <style module>
 .bq {
-  margin: 1em 0;
-  padding: 10px 0 10px 20px;
+  margin: 0;
+  padding: 0.5rem 1.25rem;
   background-color: var(--c-light);
-  border-left: solid 5px var(--c-lightest);
+  border-left: solid 5px var(--c-static-secondary);
   border-radius: 5px;
 }
 .bq > * {
-  margin: 0;
-  opacity: .7;
+  line-height: 1.8;
+  opacity: 0.8;
 }
 </style>

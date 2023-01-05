@@ -25,34 +25,41 @@
 </template>
 
 <script lang="ts" setup>
-import IconMoon from "~/components/icon/IconMoon.vue";
-import IconSun from "~/components/icon/IconSun.vue";
-import { useColorMode } from "#imports";
+import IconMoon from '~/components/icon/IconMoon.vue';
+import IconSun from '~/components/icon/IconSun.vue';
+import { useColorMode } from '#imports';
 
 const colorMode = useColorMode();
 
 const toggleDarkMode = () => {
-  colorMode.preference = colorMode.value === "dark" ? "light" : "dark";
+  colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark';
 };
 </script>
-
+<style>
+:root {
+  --l-header-height: 70px;
+}
+:target {
+  scroll-margin-top: var(--l-header-height);
+}
+</style>
 <style module>
 .header {
   position: fixed;
   top: 0;
-  height: 70px;
+  height: var(--l-header-height);
   width: 100%;
-  color: var(--c-base-dark);
+  color: var(--c-static-base-light);
   backdrop-filter: blur(3px);
   z-index: 1000;
 }
 .header::before {
-  content: "";
+  content: '';
   position: fixed;
   height: inherit;
   width: inherit;
   top: inherit;
-  background-color: var(--c-base-light);
+  background-color: var(--c-static-base-dark);
   z-index: -1;
   opacity: 0.5;
 }
@@ -68,7 +75,7 @@ const toggleDarkMode = () => {
 .title {
   line-height: 1;
   text-decoration: none;
-  color: inherit;
+  color: var(--c-darkest);
 }
 .title > * {
   font-size: 1rem;
@@ -88,8 +95,8 @@ const toggleDarkMode = () => {
   line-height: 1;
   text-decoration: none;
 }
-.menu > a[aria-current="page"] {
-  color: var(--c-darkest);
+.menu > a[aria-current='page'] {
+  color: var(--c-static-lightest);
 }
 .dark-mode {
   appearance: none;
