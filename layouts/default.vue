@@ -47,8 +47,7 @@ const router = useRouter();
 const current = router.currentRoute;
 const ignoreH1: (RouteRecordName | null | undefined)[] = ['index', 'post-slug'];
 
-const { protocol, host } = new URL(import.meta.url);
-const absolute = computed(() => `${protocol}//${host}${router.currentRoute.value.path}`);
+const absolute = computed(() => `https://dairoku-studio.com${router.currentRoute.value.path}`);
 
 useHead({
   meta: [{ property: 'og:url', content: absolute }],
