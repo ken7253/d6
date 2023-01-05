@@ -5,7 +5,9 @@
       :alt="alt"
       :width="width"
       :height="height"
-    >
+      loading="lazy"
+      decoding="async"
+    />
   </div>
 </template>
 
