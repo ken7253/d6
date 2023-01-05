@@ -1,6 +1,7 @@
 <template>
   <div :class="$style.root">
     <AppHeader />
+    <BreadcrumbList v-if="$route.fullPath !== '/'" />
     <main>
       <div v-if="!ignoreH1.includes($route.name)" :class="$style['page-title']">
         <h1>{{ $route.name }}</h1>
@@ -38,15 +39,20 @@ import type { RouteRecordName } from 'vue-router';
 import IconGithub from '~/components/icon/IconGithub.vue';
 import IconTwitter from '~/components/icon/IconTwitter.vue';
 import AppHeader from '~~/components/AppHeader.vue';
+import BreadcrumbList from '~~/components/BreadcrumbList.vue';
 
 const ignoreH1: (RouteRecordName | null | undefined)[] = ['index', 'post-slug'];
 </script>
-
+<style global>
+body {
+  margin: var(--l-header-height) 0 0 0;
+  padding: 0;
+}
+</style>
 <style module>
 .root {
   background-color: var(--c-lighter);
 }
-
 .page-title {
   background-color: var(--c-base-lighter);
 }
@@ -55,14 +61,12 @@ const ignoreH1: (RouteRecordName | null | undefined)[] = ['index', 'post-slug'];
   max-width: min(calc(100% - 40px), var(--content-max-size));
   margin: auto;
 }
-main {
-  padding-top: 70px;
-}
 .content {
   min-height: 100vh;
   min-height: 100dvh;
   max-width: min(calc(100% - 40px), var(--content-max-size));
-  margin: 25px auto;
+  margin: 0 auto;
+  padding: 25px 0;
 }
 .content-inner {
   padding: 40px 0;
