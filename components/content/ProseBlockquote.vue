@@ -14,6 +14,6 @@
 }
 .bq > * {
   margin: 0;
-  opacity: .7;
+  opacity: 0.7;
 }
 </style>

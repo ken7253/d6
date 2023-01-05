@@ -5,12 +5,10 @@
 </template>
 
 <script lang="ts" setup>
-import {useHead} from '#imports';
+import { useHead } from '#imports';
 
 useHead({
   title: 'works',
-  meta: [
-    { name: 'description', content: '作ったものとかの一覧ページ' }
-  ]
+  meta: [{ name: 'description', content: '作ったものとかの一覧ページ' }],
 });
 </script>

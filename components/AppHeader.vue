@@ -25,14 +25,14 @@
 </template>
 
 <script lang="ts" setup>
-import IconMoon from "~/components/icon/IconMoon.vue";
-import IconSun from "~/components/icon/IconSun.vue";
-import { useColorMode } from "#imports";
+import IconMoon from '~/components/icon/IconMoon.vue';
+import IconSun from '~/components/icon/IconSun.vue';
+import { useColorMode } from '#imports';
 
 const colorMode = useColorMode();
 
 const toggleDarkMode = () => {
-  colorMode.preference = colorMode.value === "dark" ? "light" : "dark";
+  colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark';
 };
 </script>
 
@@ -47,7 +47,7 @@ const toggleDarkMode = () => {
   z-index: 1000;
 }
 .header::before {
-  content: "";
+  content: '';
   position: fixed;
   height: inherit;
   width: inherit;
@@ -88,7 +88,7 @@ const toggleDarkMode = () => {
   line-height: 1;
   text-decoration: none;
 }
-.menu > a[aria-current="page"] {
+.menu > a[aria-current='page'] {
   color: var(--c-darkest);
 }
 .dark-mode {

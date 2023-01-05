@@ -11,7 +11,7 @@
 }
 
 html {
-  font-size: clamp(.88rem, 1.5vw, 1rem);
+  font-size: clamp(0.88rem, 1.5vw, 1rem);
   line-height: 2.1;
 }
 
@@ -35,20 +35,37 @@ a[href] {
 }
 
 a[href]:hover {
-  opacity: .8;
+  opacity: 0.8;
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin-bottom: 1em;
 }
 
-p,ul,ol,li,h1,h2,h3,h4,h5,h6 {
+p,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--c-dark);
-  font-feature-settings: "palt";
-  letter-spacing: .05em;
+  font-feature-settings: 'palt';
+  letter-spacing: 0.05em;
 }
 
-p,ul,ol,li {
+p,
+ul,
+ol,
+li {
   font-family: 'BIZ UDPGothic', var(--font-family-jp);
 }
 
@@ -66,10 +83,11 @@ p,ul,ol,li {
   --c-static-important: #db3131;
   --content-max-size: 900px;
   --transition-time: 250ms;
-  --font-family-jp: 'M PLUS 1', 'Source Han Sans JP', 'Noto Sans JP', "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  --font-family-jp: 'M PLUS 1', 'Source Han Sans JP', 'Noto Sans JP', 'Helvetica Neue', Arial,
+    'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
 }
 
-html:not([class*="dark-mode"]) {
+html:not([class*='dark-mode']) {
   color-scheme: light;
   --c-dark: var(--c-static-dark);
   --c-darker: var(--c-static-darker);

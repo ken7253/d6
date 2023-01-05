@@ -1,13 +1,6 @@
 <template>
   <div :class="$style.image">
-    <img
-      :src="src"
-      :alt="alt"
-      :width="width"
-      :height="height"
-      loading="lazy"
-      decoding="async"
-    />
+    <img :src="src" :alt="alt" :width="width" :height="height" loading="lazy" decoding="async" />
   </div>
 </template>
 
@@ -15,11 +8,11 @@
 defineProps({
   src: {
     type: String,
-    default: "",
+    default: '',
   },
   alt: {
     type: String,
-    default: "",
+    default: '',
   },
   width: {
     type: [String, Number],

@@ -10,43 +10,43 @@ interface LinkCard {
   url: URL;
 }
 
-const props =  defineProps({
+const props = defineProps({
   href: {
     type: String,
-    default: ''
+    default: '',
   },
   blank: {
     type: Boolean,
-    default: true
+    default: true,
   },
-})
+});
 
 const cardData = ref<Partial<LinkCard>>();
 
 const showCard = ref(false);
 const slot = ref(useSlots());
-const slotElement = slot.value.default ? slot.value.default() : null; 
+const slotElement = slot.value.default ? slot.value.default() : null;
 
-useFetch(
-  props.href,
-  {
-    key: props.href,
-    headers: [
-      ['Accept-Language', 'ja,en-US;q=0.9,en;q=0.8']
-    ]
-  }).then((siteData) => {
+useFetch(props.href, {
+  key: props.href,
+  headers: [['Accept-Language', 'ja,en-US;q=0.9,en;q=0.8']],
+}).then((siteData) => {
   if (typeof siteData.data.value !== 'string') return;
-  const head = siteData.data.value.match(/<head>(.*)<\/head>/usi)?.at(1);
+  const head = siteData.data.value.match(/<head>(.*)<\/head>/isu)?.at(1);
 
   if (!head) return;
   const url = new URL(props.href);
-  const title = head.match(/<meta property="og:title" content="(.*)">/ui)?.at(1) || head.match(/<title>(.*)<title>/ui)?.at(1);
-  const description = head.match(/<meta property="og:description" content="(.*)">/ui)?.at(1) || head.match(/<meta name="description" content="(.*)">/ui)?.at(1);
-  const image = head.match(/<meta property="og:image" content="(.*)">/ui)?.at(1);
-  const icon = url.origin + head.match(/href="(.*?[favicon.ico].*?)"/ui)?.at(1);
-  const themeColor = head.match(/<meta name="theme-color" content="(.*)">/ui)?.at(1);
+  const title =
+    head.match(/<meta property="og:title" content="(.*)">/iu)?.at(1) ||
+    head.match(/<title>(.*)<title>/iu)?.at(1);
+  const description =
+    head.match(/<meta property="og:description" content="(.*)">/iu)?.at(1) ||
+    head.match(/<meta name="description" content="(.*)">/iu)?.at(1);
+  const image = head.match(/<meta property="og:image" content="(.*)">/iu)?.at(1);
+  const icon = url.origin + head.match(/href="(.*?[favicon.ico].*?)"/iu)?.at(1);
+  const themeColor = head.match(/<meta name="theme-color" content="(.*)">/iu)?.at(1);
 
-  cardData.value = {title, description, image, icon, themeColor, url};
+  cardData.value = { title, description, image, icon, themeColor, url };
 });
 
 onMounted(() => {
@@ -57,7 +57,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div style="display: inline-block;">
+  <div style="display: inline-block">
     <NuxtLink
       v-if="showCard && cardData"
       :class="$style['card-link']"
@@ -65,12 +65,7 @@ onMounted(() => {
       :target="blank ? '_blank' : ''"
       :style="`border-color:${cardData.themeColor};`"
     >
-      <img
-        :class="$style['link-image']"
-        :src="cardData.image"
-        alt=""
-        height="120"
-      >
+      <img :class="$style['link-image']" :src="cardData.image" alt="" height="120" />
       <div :class="$style['link-text']">
         <dl>
           <dt :class="$style['link-title']">
@@ -81,23 +76,11 @@ onMounted(() => {
           </dd>
         </dl>
       </div>
-      <span
-        :class="$style['site-info']"
-      >
-        <img
-          :src="cardData.icon"
-          width="16"
-          height="16"
-          alt=""
-        > {{ cardData.url?.hostname }}
+      <span :class="$style['site-info']">
+        <img :src="cardData.icon" width="16" height="16" alt="" /> {{ cardData.url?.hostname }}
       </span>
     </NuxtLink>
-    <NuxtLink
-      v-else
-      :href="href"
-      :class="$style.link"
-      :target="blank ? '_blank' : ''"
-    >
+    <NuxtLink v-else :href="href" :class="$style.link" :target="blank ? '_blank' : ''">
       <slot />
     </NuxtLink>
   </div>
@@ -105,7 +88,7 @@ onMounted(() => {
 
 <style module>
 .link {
-  padding: 0 .25em;
+  padding: 0 0.25em;
   text-decoration: none;
 }
 .link:hover {
@@ -146,14 +129,14 @@ onMounted(() => {
   font-size: 1em;
   font-weight: 700;
   line-height: 1;
-  padding-bottom: .75em;
+  padding-bottom: 0.75em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .link-desc {
   margin: 0;
-  font-size: .5em;
+  font-size: 0.5em;
   line-height: 1.6;
   max-width: 100%;
   white-space: nowrap;
@@ -169,7 +152,7 @@ onMounted(() => {
   height: fit-content;
   width: 100%;
   padding: 0 8px 8px;
-  font-size: .75em;
+  font-size: 0.75em;
 }
 .site-info > img {
   width: 1rem;

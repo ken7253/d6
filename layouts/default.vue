@@ -34,12 +34,12 @@
 </template>
 
 <script lang="ts" setup>
-import type { RouteRecordName } from "vue-router";
-import IconGithub from "~/components/icon/IconGithub.vue";
-import IconTwitter from "~/components/icon/IconTwitter.vue";
-import AppHeader from "~~/components/AppHeader.vue";
+import type { RouteRecordName } from 'vue-router';
+import IconGithub from '~/components/icon/IconGithub.vue';
+import IconTwitter from '~/components/icon/IconTwitter.vue';
+import AppHeader from '~~/components/AppHeader.vue';
 
-const ignoreH1: (RouteRecordName | null | undefined)[] = ["index", "post-slug"];
+const ignoreH1: (RouteRecordName | null | undefined)[] = ['index', 'post-slug'];
 </script>
 
 <style module>
