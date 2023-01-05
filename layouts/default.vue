@@ -35,7 +35,8 @@
 </template>
 
 <script lang="ts" setup>
-import { useRouter } from '#app';
+import { computed } from '#imports';
+import { useRouter, useHead } from '#app';
 import type { RouteRecordName } from 'vue-router';
 import IconGithub from '~/components/icon/IconGithub.vue';
 import IconTwitter from '~/components/icon/IconTwitter.vue';
@@ -44,8 +45,14 @@ import BreadcrumbList from '~~/components/BreadcrumbList.vue';
 
 const router = useRouter();
 const current = router.currentRoute;
-
 const ignoreH1: (RouteRecordName | null | undefined)[] = ['index', 'post-slug'];
+
+const { protocol, host } = new URL(import.meta.url);
+const absolute = computed(() => `${protocol}//${host}${router.currentRoute.value.path}`);
+
+useHead({
+  meta: [{ property: 'og:url', content: absolute }],
+});
 </script>
 <style global>
 body {

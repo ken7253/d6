@@ -5,17 +5,16 @@
 </template>
 
 <script lang="ts" setup>
-import { useHead, useRoute } from '#imports';
+import { useHead } from '#imports';
 
 const { host, protocol } = new URL(import.meta.url);
-const route = useRoute();
 
 useHead({
   meta: [
     { property: 'og:type', content: 'website' },
     { property: 'og:site_name', content: 'dairoku-studio.com' },
-    { property: 'og:url', content: `${protocol}//${host}${route.fullPath}` },
     { property: 'og:title', content: 'dairoku-studio' },
+    //{ property: 'og:url', content: `${protocol}//${host}${path}` },
     {
       property: 'og:image',
       content: `${protocol}//${host}/og-image.png`,
