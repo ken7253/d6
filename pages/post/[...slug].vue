@@ -1,6 +1,5 @@
 <template>
   <ContentDoc v-slot="{ doc }">
-    {{ content.title }}
     <ContentRenderer :value="doc" />
     <div :class="$style['after-content']">
       <span
