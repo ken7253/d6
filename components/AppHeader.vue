@@ -35,12 +35,19 @@ const toggleDarkMode = () => {
   colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark';
 };
 </script>
-
+<style>
+:root {
+  --l-header-height: 70px;
+}
+:target {
+  scroll-margin-top: var(--l-header-height);
+}
+</style>
 <style module>
 .header {
   position: fixed;
   top: 0;
-  height: 70px;
+  height: var(--l-header-height);
   width: 100%;
   color: var(--c-base-dark);
   backdrop-filter: blur(3px);
