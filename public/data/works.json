@@ -2,6 +2,11 @@
   "works": {
     "oss": [
       {
+        "title": "steam-skin-source-han-sans",
+        "description": "源ノ角ゴシックをSteamに適用するためのスキン",
+        "link": "https://github.com/ken7253/steam-skin-source-han-sans"
+      },
+      {
         "title": "qkd",
         "description": "Web系のドキュメントをスピーディーに検索するための拡張機能",
         "link": "https://chrome.google.com/webstore/detail/quick-docs/clcbhlinmkbdkmlemcelfgmfcliejabm"
