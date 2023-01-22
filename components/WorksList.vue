@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts" setup>
-import { works } from 'src/data/works.json';
+import { works } from '@/assets/data/works.json';
 </script>
 
 <style module>
