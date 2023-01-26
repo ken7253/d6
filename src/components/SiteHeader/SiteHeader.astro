@@ -1,0 +1,70 @@
+---
+type NavigationItem = {
+  title: string;
+  path: `/${string}`;
+};
+export interface Props {
+  root?: boolean;
+  siteName: string;
+  navItem: NavigationItem[];
+}
+
+const { root = false, siteName, navItem } = Astro.props as Props;
+---
+
+<header class="header" id="header">
+  <div class="header-inner">
+    {root ? <h1 class="title">{siteName}</h1> : <div class="title">{siteName}</div>}
+    <ul class="nav">
+      {
+        navItem.map((link) => {
+          return (
+            <li class="nav-item">
+              <a href={link.path}>{link.title}</a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+</header>
+
+<style lang="scss">
+  :root {
+    --l-header-height: 70px;
+  }
+  :target {
+    scroll-margin-top: var(--l-header-height);
+  }
+  .header {
+    position: fixed;
+    top: 0;
+    height: var(--l-header-height);
+    width: 100%;
+    color: var(--c-static-base-light);
+    backdrop-filter: blur(3px);
+    z-index: 1000;
+  }
+  .header::before {
+    content: '';
+    position: fixed;
+    height: inherit;
+    width: inherit;
+    top: inherit;
+    background-color: var(--c-static-base-dark);
+    z-index: -1;
+    opacity: 0.5;
+  }
+  .header-inner {
+    display: flex;
+    max-width: var(--content-max-size);
+    margin: auto;
+  }
+  .title {
+    font-size: 1rem;
+  }
+  .nav {
+    list-style-type: none;
+    display: flex;
+  }
+</style>
