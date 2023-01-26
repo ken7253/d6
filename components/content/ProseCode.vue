@@ -1,38 +1,32 @@
 <script lang="ts">
-import { defineComponent } from '#imports'
+import { defineComponent } from '#imports';
 export default defineComponent({
   props: {
     code: {
       type: String,
-      default: ''
+      default: '',
     },
     language: {
       type: String,
-      default: null
+      default: null,
     },
     filename: {
       type: String,
-      default: null
+      default: null,
     },
     highlights: {
       type: Array as () => number[],
-      default: () => []
-    }
-  }
-})
+      default: () => [],
+    },
+  },
+});
 </script>
 
 <template>
   <div :class="$style.code">
     <div :class="$style.inner">
-      <span
-        v-if="$props.language"
-        :class="$style.lang"
-      > {{ $props.language }} </span>
-      <span
-        v-if="$props.filename"
-        :class="$style.filename"
-      > {{ $props.filename }} </span>
+      <span v-if="$props.language" :class="$style.lang"> {{ $props.language }} </span>
+      <span v-if="$props.filename" :class="$style.filename"> {{ $props.filename }} </span>
       <slot />
     </div>
   </div>
@@ -48,13 +42,13 @@ export default defineComponent({
 }
 .code::before {
   position: absolute;
-  content: "";
+  content: '';
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: var(--c-static-dark);
-  opacity: .9;
+  opacity: 0.9;
   z-index: -1;
 }
 .inner {
@@ -80,10 +74,10 @@ export default defineComponent({
   padding: 0 10px 3px 10px;
   background-color: var(--c-lightest);
   line-height: 1.5;
-  font-size: .9em;
+  font-size: 0.9em;
 }
 .lang::before {
-  content: ".";
+  content: '.';
 }
 .filename + pre {
   margin-top: 20px;
@@ -95,7 +89,7 @@ export default defineComponent({
   padding: 0 10px 3px 10px;
   background-color: var(--c-lightest);
   line-height: 1.5;
-  font-size: .9em;
+  font-size: 0.9em;
 }
 </style>
 
@@ -107,7 +101,7 @@ pre code .line {
   display: block;
   min-height: 1rem;
   line-height: 1.6;
-  font-size: .75rem;
+  font-size: 0.75rem;
   color: var(--c-static-light);
 }
 .highlight {

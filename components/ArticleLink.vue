@@ -6,10 +6,7 @@
     :target="targetBlank ? '_blank' : '_self'"
   >
     <slot />
-    <time
-      :class="$style.date"
-      :datetime="props.date"
-    > / {{ props.date }}</time>
+    <time :class="$style.date" :datetime="props.date"> / {{ props.date }}</time>
   </NuxtLink>
 </template>
 
@@ -17,7 +14,7 @@
 const props = defineProps({
   link: {
     type: String,
-    required: true
+    required: true,
   },
   date: {
     type: String,
@@ -25,7 +22,6 @@ const props = defineProps({
   },
   targetBlank: Boolean,
 });
-
 </script>
 
 <style module>
@@ -34,6 +30,6 @@ const props = defineProps({
   padding-bottom: 8px;
 }
 .date {
-  font-size: .75em;
+  font-size: 0.75em;
 }
 </style>

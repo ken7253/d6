@@ -1,11 +1,6 @@
 <template>
   <div :class="$style.image">
-    <img
-      :src="src"
-      :alt="alt"
-      :width="width"
-      :height="height"
-    >
+    <img :src="src" :alt="alt" :width="width" :height="height" loading="lazy" decoding="async" />
   </div>
 </template>
 
@@ -13,11 +8,11 @@
 defineProps({
   src: {
     type: String,
-    default: "",
+    default: '',
   },
   alt: {
     type: String,
-    default: "",
+    default: '',
   },
   width: {
     type: [String, Number],
@@ -32,11 +27,12 @@ defineProps({
 
 <style module>
 .image {
-  border: solid 2px var(--c-dark);
-  border-radius: 5px;
+  background-color: var(--c-base-dark);
 }
-.image > img {
+img {
+  border: solid 3px var(--c-base-dark);
   display: block;
-  border-radius: 5px;
+  max-width: 100%;
+  height: auto;
 }
 </style>

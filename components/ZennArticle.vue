@@ -1,33 +1,16 @@
 <template>
   <div>
     <h2>技術的な記事</h2>
-    <p v-if="articles.length === 0">
-      記事の取得に失敗しました
-    </p>
-    <ul
-      v-else
-      :class="$style.artical"
-    >
-      <li
-        v-for="article in articles"
-        :key="article.guid"
-        :class="$style.item"
-      >
-        <ArticleLink
-          :link="article.link"
-          :date="article.pubDate.split(' ')[0]"
-          target-blank
-        >
+    <p v-if="articles.length === 0">記事の取得に失敗しました</p>
+    <ul v-else :class="$style.artical">
+      <li v-for="article in articles" :key="article.guid" :class="$style.item">
+        <ArticleLink :link="article.link" :date="article.pubDate.split(' ')[0]" target-blank>
           {{ article.title }}
         </ArticleLink>
       </li>
     </ul>
     <div :class="$style['read-more']">
-      <NuxtLink
-        :class="$style.anchor"
-        href="https://zenn.dev/ken7253"
-        target="_blank"
-      >
+      <NuxtLink :class="$style.anchor" href="https://zenn.dev/ken7253" target="_blank">
         すべての記事を見る
       </NuxtLink>
     </div>
@@ -35,7 +18,7 @@
 </template>
 
 <script lang="ts" setup>
-import {ref} from '#imports';
+import { ref } from '#imports';
 const articles = ref([]);
 
 const base = 'https://api.rss2json.com/v1/api.json';
@@ -45,7 +28,7 @@ fetch(`${base}${request}`).then((resp) => {
   if (!resp.ok) return;
   resp.json().then((data) => {
     articles.value = data.items.slice(0, 5);
-  })
+  });
 });
 </script>
 
@@ -58,6 +41,6 @@ fetch(`${base}${request}`).then((resp) => {
   display: inline;
 }
 .read-more {
-  padding-top: .75rem;
+  padding-top: 0.75rem;
 }
 </style>
