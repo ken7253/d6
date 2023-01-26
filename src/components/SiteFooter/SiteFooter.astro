@@ -1,0 +1,19 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer" id="footer">
+  <small class="copyright">© {currentYear} ken7253.</small>
+</footer>
+
+<style lang="scss">
+  .footer {
+    color: var(--c-base-dark);
+    background-color: var(--c-base-light);
+  }
+  .copyright {
+    display: block;
+    max-width: var(--content-max-width);
+    text-align: center;
+  }
+</style>

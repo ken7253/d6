@@ -2,6 +2,7 @@
 import '@fontsource/m-plus-1';
 
 import SiteHeader, { Props as HeaderProps } from '../components/SiteHeader/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter/SiteFooter.astro';
 
 export interface Props {
   title?: string;
@@ -43,12 +44,16 @@ const headerNavigation: HeaderProps['navItem'] = [
   <body>
     <SiteHeader root={root} siteName={siteName} navItem={headerNavigation} />
     <main class="main"><slot /></main>
+    <SiteFooter />
   </body>
 </html>
 
 <style lang="scss">
   .main {
+    min-height: 100vh;
+    min-height: 100dvh;
     max-width: var(--content-max-size);
     margin: var(--l-header-height) auto 0;
+    padding: 20px 0;
   }
 </style>
