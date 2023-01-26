@@ -4,7 +4,9 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "lint": "eslint src",
+    "fmt": "prettier --write ."
   },
   "engines": {
     "node": "18.13.0"
@@ -21,5 +23,15 @@
   },
   "dependencies": {
     "astro": "^2.0.1"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
+    "eslint": "^8.32.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-astro": "^0.23.0",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "prettier": "^2.8.3",
+    "prettier-plugin-astro": "^0.8.0"
   }
 }

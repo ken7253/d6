@@ -1,3 +1,10 @@
 {
-  "cSpell.words": ["dairoku", "Logicool", "Nuphy", "Nuxt", "REALFORCE", "zenn"]
+  "cSpell.words": ["dairoku", "Logicool", "Nuphy", "Nuxt", "REALFORCE", "zenn"],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "astro", // Enable .astro
+    "typescript", // Enable .ts
+    "typescriptreact" // Enable .tsx
+  ]
 }
