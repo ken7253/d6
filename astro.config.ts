@@ -9,4 +9,12 @@ export default defineConfig({
   // https://docs.astro.build/ja/reference/configuration-reference/
   site: 'https://dairoku-studio.com',
   integrations: [sitemap(), image()],
+  server: {
+    host: true,
+  },
+  vite: {
+    server: {
+      hmr: true,
+    },
+  },
 });
