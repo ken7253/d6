@@ -1,21 +1,54 @@
 ---
 import '@fontsource/m-plus-1';
-export interface LayoutProps {
-  title: string;
+
+import SiteHeader, { Props as HeaderProps } from '../components/SiteHeader/SiteHeader.astro';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  root?: boolean;
 }
 
-const { title } = Astro.props as LayoutProps;
+const { title, description, root } = Astro.props as Props;
+const siteName = 'dairoku-studio' as const;
+const defaultDescripton = '';
+const headerNavigation: HeaderProps['navItem'] = [
+  {
+    title: 'about',
+    path: '/about',
+  },
+  {
+    title: 'post',
+    path: '/post',
+  },
+  {
+    title: 'works',
+    path: '/works',
+  },
+];
 ---
 
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" class="dark-mode">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
+    <title>{title ?? siteName}</title>
+    <meta name="description" content={description ?? defaultDescripton} />
+    <meta />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/main.css" />
   </head>
   <body>
-    <slot />
+    <SiteHeader root={root} siteName={siteName} navItem={headerNavigation} />
+    <main class="main"><slot /></main>
   </body>
 </html>
+
+<style lang="scss">
+  .main {
+    max-width: var(--content-max-size);
+    margin: var(--l-header-height) auto 0;
+  }
+</style>
