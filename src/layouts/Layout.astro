@@ -4,15 +4,22 @@ import '@fontsource/m-plus-1';
 import SiteHeader, { Props as HeaderProps } from '../components/SiteHeader/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter/SiteFooter.astro';
 
+type OGProperty = {
+  type: 'website' | 'blog' | 'article';
+  title: string;
+  description: string;
+};
+
 export interface Props {
   title?: string;
   description?: string;
   root?: boolean;
+  ogp: Partial<OGProperty>;
 }
 
-const { title, description, root } = Astro.props as Props;
+const { title, description, root, ogp } = Astro.props as Props;
 const siteName = 'dairoku-studio' as const;
-const defaultDescripton = '';
+const defaultDescripton = '技術記事以外のブログや作ったものの置き場として利用しています。' as const;
 const headerNavigation: HeaderProps['navItem'] = [
   {
     title: 'about',
@@ -30,14 +37,22 @@ const headerNavigation: HeaderProps['navItem'] = [
 ---
 
 <!DOCTYPE html>
-<html lang="ja" class="dark-mode">
+<html lang="ja" prefix="og: https://ogp.me/ns#" class="dark-mode">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#1f214e" />
     <title>{title ?? siteName}</title>
     <meta name="description" content={description ?? defaultDescripton} />
-    <meta />
+    <meta property="og:type" content={ogp?.type ?? 'website'} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={title ?? siteName} />
+    <meta property="og:description" content={ogp?.description ?? description ?? defaultDescripton} />
+    <meta property="og:image" content="https://dairoku-studio.com/ogp-thumbnail.png" />
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:site" content="@ken7253_" />
+    <meta property="og:url" content="" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="/css/main.css" />
   </head>
