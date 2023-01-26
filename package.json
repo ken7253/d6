@@ -1,19 +1,25 @@
 {
   "name": "d6",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
   "engines": {
     "node": "18.13.0"
   },
   "volta": {
     "node": "18.13.0"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/ken7253/d6.git"
   },
   "bugs": {
     "url": "https://github.com/ken7253/d6/issues"
+  },
+  "dependencies": {
+    "astro": "^2.0.1"
   }
 }
