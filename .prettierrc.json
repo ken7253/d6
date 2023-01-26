@@ -1,1 +1,12 @@
-{}
+{
+  "singleQuote": true,
+  "printWidth": 120,
+  "overrides": [
+    {
+      "files": ["*.json", "*.yaml", "*.yml"],
+      "options": {
+        "singleQuote": false
+      }
+    }
+  ]
+}
