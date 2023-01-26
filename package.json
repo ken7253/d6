@@ -22,6 +22,7 @@
     "url": "https://github.com/ken7253/d6/issues"
   },
   "dependencies": {
+    "@fontsource/m-plus-1": "^4.5.12",
     "astro": "^2.0.1"
   },
   "devDependencies": {
