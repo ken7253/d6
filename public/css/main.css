@@ -63,7 +63,7 @@ h1, h2, h3, h4, h5, h6 {
   --c-static-base-light: #c6c8ec;
   --c-static-secondary: #70909e;
   --c-static-important: #db3131;
-  --content-max-size: 900px;
+  --content-max-size: min(900px, calc(100% - 20px));
   --transition-time: 250ms;
   --font-family-jp: 'M PLUS 1', 'Source Han Sans JP', 'Noto Sans JP', 'Helvetica Neue', Arial,
     'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
@@ -101,6 +101,10 @@ html.dark-mode {
   min-height: 100vh;
   min-height: 100dvh;
   max-width: var(--content-max-size);
-  margin: var(--l-header-height) auto 0;
+  margin: 0 auto;
   padding: 20px 0;
+}
+
+.header + * {
+  margin-top: var(--l-header-height);
 }
