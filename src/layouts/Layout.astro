@@ -42,11 +42,11 @@ const headerNavigation: HeaderProps['navItem'] = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="light dark" />
     <meta name="theme-color" content="#1f214e" />
-    <title>{title ?? siteName}</title>
+    <title>{root ? siteName : `${title} - ${siteName}`}</title>
     <meta name="description" content={description ?? defaultDescripton} />
     <meta property="og:type" content={ogp?.type ?? 'website'} />
     <meta property="og:site_name" content={siteName} />
-    <meta property="og:title" content={title ?? siteName} />
+    <meta property="og:title" content={root ? siteName : `${title} - ${siteName}`} />
     <meta property="og:description" content={ogp?.description ?? description ?? defaultDescripton} />
     <meta property="og:image" content="https://dairoku-studio.com/ogp-thumbnail.png" />
     <meta property="twitter:card" content="summary" />
