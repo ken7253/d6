@@ -3,6 +3,7 @@ import '@fontsource/m-plus-1';
 
 import SiteHeader, { Props as HeaderProps } from '@components/SiteHeader/SiteHeader.astro';
 import SiteFooter from '@components/SiteFooter/SiteFooter.astro';
+import BreadcrumbList from '@components/BreadcrumbList/breadcrumbList.astro';
 
 export type OGProperty = {
   type: 'website' | 'blog' | 'article';
@@ -48,7 +49,7 @@ const headerNavigation: HeaderProps['navItem'] = [
     <meta property="og:site_name" content={siteName} />
     <meta property="og:title" content={root ? siteName : `${title} - ${siteName}`} />
     <meta property="og:description" content={ogp?.description ?? description ?? defaultDescripton} />
-    <meta property="og:image" content="https://dairoku-studio.com/ogp-thumbnail.png" />
+    <meta property="og:image" content={`${Astro.site}ogp-thumbnail.png`} />
     <meta property="twitter:card" content="summary" />
     <meta property="twitter:site" content="@ken7253_" />
     <meta property="og:url" content="" />
@@ -57,7 +58,10 @@ const headerNavigation: HeaderProps['navItem'] = [
   </head>
   <body>
     <SiteHeader root={root} siteName={siteName} navItem={headerNavigation} />
-    <main class="main"><slot /></main>
+    {root ? null : <BreadcrumbList />}
+    <main class="main">
+      <slot />
+    </main>
     <SiteFooter />
   </body>
 </html>
