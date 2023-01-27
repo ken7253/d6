@@ -30,7 +30,9 @@ const { root = false, siteName, navItem } = Astro.props as Props;
         navItem.map((link) => {
           return (
             <li class="nav-item">
-              <a href={link.path}>{link.title}</a>
+              <a href={link.path} aria-current={link.path === Astro.url.pathname ? 'page' : null}>
+                {link.title}
+              </a>
             </li>
           );
         })
@@ -41,7 +43,7 @@ const { root = false, siteName, navItem } = Astro.props as Props;
 
 <style lang="scss">
   :root {
-    --l-header-height: 70px;
+    --l-header-height: 64px;
   }
   :target {
     scroll-margin-top: var(--l-header-height);
@@ -69,17 +71,37 @@ const { root = false, siteName, navItem } = Astro.props as Props;
     display: flex;
     max-width: var(--content-max-size);
     margin: auto;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
   }
   .title {
     font-size: 1rem;
     font-weight: 700;
+    margin: 0;
+    letter-spacing: 0.05em;
 
     & > a {
       text-decoration: none;
+      color: var(--c-static-light);
     }
   }
   .nav {
     list-style-type: none;
     display: flex;
+    gap: 8px;
+  }
+  .nav-item {
+    & > a {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  [aria-current='page'] {
+    color: var(--c-dark);
   }
 </style>
