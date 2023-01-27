@@ -14,7 +14,17 @@ const { root = false, siteName, navItem } = Astro.props as Props;
 
 <header class="header" id="header">
   <div class="header-inner">
-    {root ? <h1 class="title">{siteName}</h1> : <div class="title">{siteName}</div>}
+    {
+      root ? (
+        <h1 class="title">
+          <a href="/">{siteName}</a>
+        </h1>
+      ) : (
+        <div class="title">
+          <a href="/">{siteName}</a>
+        </div>
+      )
+    }
     <ul class="nav">
       {
         navItem.map((link) => {
@@ -62,6 +72,11 @@ const { root = false, siteName, navItem } = Astro.props as Props;
   }
   .title {
     font-size: 1rem;
+    font-weight: 700;
+
+    & > a {
+      text-decoration: none;
+    }
   }
   .nav {
     list-style-type: none;
