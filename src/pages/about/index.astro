@@ -1,0 +1,11 @@
+---
+import Layout, { type OGProperty } from '@layouts/Layout.astro';
+
+const ogp: Partial<OGProperty> = {};
+const pageName = 'about';
+const description = '作ったものとか';
+---
+
+<Layout title={pageName} description={description} ogp={ogp}>
+  <h2>{pageName}</h2>
+</Layout>

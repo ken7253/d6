@@ -4,20 +4,20 @@ import '@fontsource/m-plus-1';
 import SiteHeader, { Props as HeaderProps } from '../components/SiteHeader/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter/SiteFooter.astro';
 
-type OGProperty = {
+export type OGProperty = {
   type: 'website' | 'blog' | 'article';
   title: string;
   description: string;
 };
 
 export interface Props {
+  root?: boolean;
   title?: string;
   description?: string;
-  root?: boolean;
   ogp: Partial<OGProperty>;
 }
 
-const { title, description, root, ogp } = Astro.props as Props;
+const { title, description, root = false, ogp } = Astro.props as Props;
 const siteName = 'dairoku-studio' as const;
 const defaultDescripton = '技術記事以外のブログや作ったものの置き場として利用しています。' as const;
 const headerNavigation: HeaderProps['navItem'] = [
@@ -36,7 +36,6 @@ const headerNavigation: HeaderProps['navItem'] = [
 ];
 ---
 
-<!DOCTYPE html>
 <html lang="ja" prefix="og: https://ogp.me/ns#" class="dark-mode">
   <head>
     <meta charset="UTF-8" />
@@ -62,13 +61,3 @@ const headerNavigation: HeaderProps['navItem'] = [
     <SiteFooter />
   </body>
 </html>
-
-<style lang="scss">
-  .main {
-    min-height: 100vh;
-    min-height: 100dvh;
-    max-width: var(--content-max-size);
-    margin: var(--l-header-height) auto 0;
-    padding: 20px 0;
-  }
-</style>

@@ -1,7 +1,9 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout, { type OGProperty } from '@layouts/Layout.astro';
+
+const ogp: Partial<OGProperty> = {};
 ---
 
-<Layout root={true}>
+<Layout root={true} ogp={ogp}>
   <p>Hi Astro!</p>
 </Layout>

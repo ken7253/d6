@@ -44,26 +44,11 @@ h6 {
   margin-bottom: 1em;
 }
 
-p,
-ul,
-ol,
-li,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+p, ul, ol, li,
+h1, h2, h3, h4, h5, h6 {
   color: var(--c-dark);
   font-feature-settings: 'palt';
   letter-spacing: 0.05em;
-}
-
-p,
-ul,
-ol,
-li {
-  font-family: 'BIZ UDPGothic', var(--font-family-jp);
 }
 
 /* variable */
@@ -110,4 +95,12 @@ html.dark-mode {
   --c-base-light: var(--c-static-base-dark);
   --c-secondary: var(--c-static-secondary);
   --c-important: var(--c-static-important);
+}
+
+.main {
+  min-height: 100vh;
+  min-height: 100dvh;
+  max-width: var(--content-max-size);
+  margin: var(--l-header-height) auto 0;
+  padding: 20px 0;
 }
