@@ -1,0 +1,70 @@
+---
+import { log } from 'astro/dist/core/logger/core';
+
+type BredcrumbData = {
+  current: boolean;
+  href: string;
+  label: string;
+};
+
+const { pathname } = new URL(Astro.url);
+
+const nav: BredcrumbData[] = pathname.split('/').map((v, i, a) => {
+  const label = v === '' ? 'Home' : v;
+  const href = v === '' ? '/' : a.slice(0, i + 1).join('/');
+  const current = href === Astro.url.pathname;
+
+  return { label, href, current };
+});
+---
+
+<div class="bredcrumb">
+  <nav class="bredcrumb-inner" aria-label="パンくずリスト">
+    <ul class="bredcrumb-list">
+      {
+        nav.map((v) => {
+          return (
+            <li class="bredcrmb-item">
+              {/* prettier-ignore */}
+              <a href={v.href} aria-current={v.current ? 'page' : null}>{v.label}</a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </nav>
+</div>
+
+<style lang="scss">
+  .bredcrumb {
+    background-color: var(--c-base-light);
+  }
+  .bredcrumb-list {
+    max-width: var(--content-max-size);
+    margin: 0 auto;
+    display: flex;
+    list-style-type: none;
+    font-size: 0.75rem;
+  }
+
+  .bredcrmb-item {
+    display: flex;
+
+    & > a {
+      line-height: 1;
+      padding: 0.5em 0 0.75em 0;
+      text-decoration: none;
+    }
+
+    &:not(:first-child)::before {
+      content: '>';
+      padding: 0.5em 4px;
+      line-height: 1;
+    }
+  }
+
+  [aria-current='page'] {
+    color: var(--c-darker);
+    text-decoration: none;
+  }
+</style>
