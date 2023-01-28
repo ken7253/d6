@@ -2,7 +2,6 @@
 title: Mozillaへの寄付を始めてみました
 description: Mozillaへの寄付と自分の考えについて
 date: 2023-01-04
-draft: true
 ---
 
 # Mozilla への寄付を始めてみました
