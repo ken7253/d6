@@ -7,13 +7,19 @@ type BredcrumbData = {
 
 const { pathname } = new URL(Astro.url);
 
-const nav: BredcrumbData[] = pathname.split('/').map((v, i, a) => {
-  const label = v === '' ? 'Home' : v;
-  const href = v === '' ? '/' : a.slice(0, i + 1).join('/');
-  const current = href === Astro.url.pathname;
+const nav: BredcrumbData[] = pathname
+  .split('/')
+  .map((v, i, a) => {
+    const isHome = v === '' && a.length !== i + 1;
+    const label = isHome ? 'Home' : v;
+    const href = v === '' ? '/' : a.slice(0, i + 1).join('/');
+    const current = href === Astro.url.pathname;
 
-  return { label, href, current };
-});
+    return { label, href, current };
+  })
+  .filter((v) => v.label !== '');
+
+console.log(nav);
 ---
 
 <div class="bredcrumb">
