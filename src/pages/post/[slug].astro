@@ -21,7 +21,6 @@ export async function getStaticPaths() {
 
 const contentList = await Astro.glob('../../assets/posts/*.md');
 const content = contentList.filter((v) => path.parse(v.file).name === Astro.params.slug)[0];
-console.log(content);
 ---
 
 <Layout ogp={ogp} title={content.frontmatter.title} description={content.frontmatter.description}>
