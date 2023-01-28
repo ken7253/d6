@@ -24,8 +24,17 @@ const content = contentList.filter((v) => path.parse(v.file).name === Astro.para
 ---
 
 <Layout ogp={ogp} title={content.frontmatter.title} description={content.frontmatter.description}>
-  <div class="post-content-area">
+  <div class="content">
     <Fragment set:html={content.compiledContent()} />
+  </div>
+  <div class="post-content-area">
+    <div>post at <time>{content.frontmatter.date.split('T')[0]}</time></div>
     <a href="/post/">記事一覧に戻る</a>
   </div>
 </Layout>
+
+<style lang="scss">
+  .post-content-area {
+    text-align: end;
+  }
+</style>
