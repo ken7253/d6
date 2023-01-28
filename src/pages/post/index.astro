@@ -1,4 +1,5 @@
 ---
+import path from 'node:path';
 import Layout, { type OGProperty } from '@layouts/Layout.astro';
 
 const ogp: Partial<OGProperty> = {
@@ -6,8 +7,33 @@ const ogp: Partial<OGProperty> = {
 };
 const pageName = 'post';
 const description = 'ブログ一覧ページ';
+
+const contents = await Astro.glob('../../assets/posts/*.md');
+const articles = contents.map((v) => {
+  return {
+    path: `/post/${path.parse(v.file).name}`,
+    title: v.frontmatter.title,
+    date: v.frontmatter.date.split('T')[0],
+    draft: v.frontmatter.draft,
+  };
+});
 ---
 
 <Layout title={pageName} description={description} ogp={ogp}>
   <h2>{pageName}</h2>
+  <div>
+    <ul>
+      {
+        articles.map((v) => {
+          return !v.draft ? (
+            <li>
+              <a href={v.path}>
+                {v.title}/<time>{v.date}</time>
+              </a>
+            </li>
+          ) : null;
+        })
+      }
+    </ul>
+  </div>
 </Layout>

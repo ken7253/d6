@@ -1,0 +1,32 @@
+---
+import Layout, { type OGProperty } from '~/layouts/Layout.astro';
+import path from 'node:path';
+
+const ogp: Partial<OGProperty> = {
+  type: 'article',
+};
+
+export async function getStaticPaths() {
+  const posts = await Astro.glob('../../assets/posts/*.md');
+  const route = posts.map((v) => {
+    return {
+      params: {
+        slug: path.parse(v.file).name,
+      },
+    };
+  });
+
+  return route;
+}
+
+const contentList = await Astro.glob('../../assets/posts/*.md');
+const content = contentList.filter((v) => path.parse(v.file).name === Astro.params.slug)[0];
+console.log(content);
+---
+
+<Layout ogp={ogp} title={content.frontmatter.title} description={content.frontmatter.description}>
+  <div class="post-content-area">
+    <Fragment set:html={content.compiledContent()} />
+    <a href="/post/">記事一覧に戻る</a>
+  </div>
+</Layout>
