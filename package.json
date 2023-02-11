@@ -28,7 +28,7 @@
     "ts-node": "^10.9.1"
   },
   "dependencies": {
-    "@nuxt/content": "^2.3.0"
+    "@nuxt/content": "^2.4.3"
   },
   "repository": {
     "type": "git",
