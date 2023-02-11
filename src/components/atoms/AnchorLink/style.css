@@ -1,0 +1,16 @@
+.link {
+  text-underline-offset: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0 4px;
+}
+.link:hover,
+.link:focus-visible {
+  opacity: .7;
+}
+.external-icon {
+  aspect-ratio: 1 / 1;
+  width: .75em;
+  padding: 2px 0 0;
+}
