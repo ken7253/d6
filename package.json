@@ -27,6 +27,7 @@
     "@astrojs/react": "^2.0.1",
     "@astrojs/sitemap": "^1.0.0",
     "@fontsource/m-plus-1": "^4.5.12",
+    "@mui/icons-material": "^5.11.0",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@webcomponents/template-shadowroot": "^0.1.0",
