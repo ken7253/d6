@@ -21,7 +21,7 @@
     "dayjs": "^1.11.7",
     "eslint": "^8.33.0",
     "eslint-plugin-vue": "^9.9.0",
-    "npm-check-updates": "^16.6.2",
+    "npm-check-updates": "^16.7.12",
     "nuxt": "^3.0.0",
     "prettier": "^2.8.3",
     "sass": "^1.57.1",
