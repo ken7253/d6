@@ -1,9 +1,17 @@
 ---
 import Layout, { type OGProperty } from '@layouts/Layout.astro';
+import ArticleList from '@components/ArticleList/ArticleList.astro';
 
 const ogp: Partial<OGProperty> = {};
 ---
 
 <Layout root={true} ogp={ogp}>
-  <p>Hi Astro!</p>
+  <p>
+    おそらくフロントエンドエンジニア<br />
+    技術記事以外のブログや作ったものの置き場として利用しています。
+  </p>
+  <h2>pages</h2>
+  <h2>技術的な記事</h2>
+  <h2>普通のブログ</h2>
+  <ArticleList startHeadingLevel={3} size={5} from="/post" />
 </Layout>

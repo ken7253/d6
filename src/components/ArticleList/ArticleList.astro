@@ -1,0 +1,68 @@
+---
+import path from 'node:path';
+
+export interface Props {
+  startHeadingLevel?: 2 | 3 | 4 | 5;
+  visibleDate?: boolean;
+  size?: number;
+  from?: string;
+}
+
+const { startHeadingLevel = 2, visibleDate = true, size, from } = Astro.props as Props;
+
+const Heading = `h${startHeadingLevel}`;
+
+const contents = await Astro.glob('../../assets/posts/*.md');
+
+const articles = contents
+  .map((v) => {
+    return {
+      path: `/post/${path.parse(v.file).name}`,
+      title: v.frontmatter.title,
+      date: v.frontmatter.date.split('T')[0],
+      draft: v.frontmatter.draft,
+    };
+  })
+  .filter((v) => !v.draft)
+  .reverse()
+  .slice(0, size);
+---
+
+<div class="articles">
+  <ul class="post">
+    {
+      articles.map((article) => {
+        return (
+          <li class="post-item">
+            <Heading>
+              <a href={article.path}>{article.title}</a>
+            </Heading>
+            {visibleDate ? <time class="post-date">{article.date}</time> : null}
+          </li>
+        );
+      })
+    }
+  </ul>
+  {from ? <a href={from}>記事一覧</a> : null}
+</div>
+
+<style lang="scss">
+  .post {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .post-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    & > a {
+      width: fit-content;
+    }
+  }
+  .post-date {
+    font-size: 0.8rem;
+    line-height: 1;
+  }
+</style>

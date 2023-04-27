@@ -1,61 +1,15 @@
 ---
-import path from 'node:path';
 import Layout, { type OGProperty } from '@layouts/Layout.astro';
+import ArticleList from '@components/ArticleList/ArticleList.astro';
 
 const ogp: Partial<OGProperty> = {
   type: 'blog',
 };
 const pageName = 'post';
 const description = 'ブログ一覧ページ';
-
-const contents = await Astro.glob('../../assets/posts/*.md');
-const articles = contents.map((v) => {
-  return {
-    path: `/post/${path.parse(v.file).name}`,
-    title: v.frontmatter.title,
-    date: v.frontmatter.date.split('T')[0],
-    draft: v.frontmatter.draft,
-  };
-});
 ---
 
 <Layout title={pageName} description={description} ogp={ogp}>
   <h2>{pageName}</h2>
-  <div>
-    <ul class="post">
-      {
-        articles.reverse().map((v) => {
-          return !v.draft ? (
-            <li class="post-item">
-              <>
-                <a href={v.path}>{v.title}</a>
-                <time class="post-date">{v.date}</time>
-              </>
-            </li>
-          ) : null;
-        })
-      }
-    </ul>
-  </div>
+  <ArticleList startHeadingLevel={3} />
 </Layout>
-
-<style lang="scss">
-  .post {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  .post-item {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-
-    & > a {
-      width: fit-content;
-    }
-  }
-  .post-date {
-    font-size: 0.8rem;
-    line-height: 1;
-  }
-</style>
