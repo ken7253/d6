@@ -1,0 +1,79 @@
+{
+  "works": {
+    "oss": [
+      {
+        "title": "qkd",
+        "description": "Web系のドキュメントをスピーディーに検索するための拡張機能",
+        "link": "https://chrome.google.com/webstore/detail/quick-docs/clcbhlinmkbdkmlemcelfgmfcliejabm"
+      },
+      {
+        "title": "urlQueryUtil",
+        "description": "URLQueryParameterをCSSとしてパースさせるnpmパッケージ",
+        "link": "https://www.npmjs.com/package/url-query-util"
+      },
+      {
+        "title": "shikisai",
+        "description": "CSSの色情報を管理するパッケージ（開発中）",
+        "link": "https://github.com/ken7253/shikisai"
+      }
+    ],
+    "web": [
+      {
+        "title": "Codeing Assistant",
+        "description": "Vue.js 勉強用",
+        "link": "https://coding-assistant.netlify.app/"
+      },
+      {
+        "title": "ダバイ治",
+        "description": "webサイト制作",
+        "link": "https://dabaiosamu.com/"
+      },
+      {
+        "title": "ENLIFE",
+        "description": "webサイト制作\n※現在はリニューアル済みで別サイトになっています。",
+        "link": ""
+      }
+    ],
+    "streaming": [
+      {
+        "title": "Kusoge Of The RTA",
+        "description": "配信レイアウトデザイン制作",
+        "link": "https://oengus.io/marathon/kusoge",
+        "date": "2020/07/04-2020/07/05"
+      },
+      {
+        "title": "RTA 1n Kagawa Online",
+        "description": "配信レイアウトデザイン制作",
+        "link": "https://www.twitch.tv/collections/Ikv6MCif-hU0Iw",
+        "date": "2020/03/07-2020/03/08"
+      },
+      {
+        "title": "RTA Station",
+        "description": "配信管理・各種デザイン",
+        "link": "https://twitter.com/RtaStation",
+        "date": "2019/4/14"
+      },
+      {
+        "title": "Dotaまらカップ2018 in Tokyo",
+        "description": "配信管理・構築",
+        "link": "",
+        "date": "2018/7/28"
+      }
+    ],
+    "design": [
+      {
+        "title": "第3回街森借金返済王決定戦",
+        "description": "イベントフライヤー作成",
+        "link": "https://tonamel.com/competition/iuYAH",
+        "date": "2020/10/04"
+      },
+      {
+        "title": "名古屋RTAオンラインフェス",
+        "description": "イベントフライヤー作成",
+        "link": "https://twitter.com/NagoyaRTA/status/1263628991136579584",
+        "date": "2020/5/30-2020/5/31"
+      }
+    ]
+  },
+  "auther": "ken7253"
+}

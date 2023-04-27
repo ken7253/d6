@@ -1,5 +1,8 @@
 ---
 import Layout, { type OGProperty } from '@layouts/Layout.astro';
+import { works } from '~/content/data/works.json';
+
+const category = Object.keys(works) as (keyof typeof works)[];
 
 const ogp: Partial<OGProperty> = {};
 const pageName = 'works';
@@ -8,4 +11,23 @@ const description = '作ったものとか';
 
 <Layout title={pageName} description={description} ogp={ogp}>
   <h2>{pageName}</h2>
+  {
+    category.map((cat) => {
+      return (
+        <div>
+          <h3>{cat}</h3>
+          <dl>
+            {works[cat].map((v) => {
+              return (
+                <dt>
+                  <a href={v.link}>{v.title}</a>
+                </dt>
+                <dd>{v.description}</dd>
+              );
+            })}
+          </dl>
+        </div>
+      );
+    })
+  }
 </Layout>
